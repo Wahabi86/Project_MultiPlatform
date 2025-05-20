@@ -9,7 +9,7 @@ NAMA ANGGOTA KELOMPOK :
 UPDATE :
 MENGGABUNGKAN SEMUA HALAMAN MENJADI SATU (Wahyu,Abi,Ariningsih,Degus)
 
-Menambahkan Gambar di Login Page dan progres Profile Page (Wahyu)
-Mengupdate tampilan di Home Page dan Bottom Navigasi (Abi)
-Mengupdate tampilan di Search Page (Ariningsih)
-Mengupdate tampilan di Detail Page (Degus)
+1. Menambahkan Gambar di Login Page dan progres Profile Page (Wahyu) <br>
+2. Mengupdate tampilan di Home Page dan Bottom Navigasi (Abi) <br>
+3. Mengupdate tampilan di Search Page (Ariningsih) <br>
+4. Mengupdate tampilan di Detail Page (Degus) <br>
