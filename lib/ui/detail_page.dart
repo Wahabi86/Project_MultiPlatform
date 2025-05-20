@@ -15,7 +15,7 @@ class MovieDetailsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        iconTheme: IconThemeData(color: Color(0xFFFFC700)),
+        iconTheme: IconThemeData(color: Colors.white),
         title: Text(
           title,
           style: TextStyle(fontSize: 18, color: Colors.white),
