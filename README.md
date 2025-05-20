@@ -1,16 +1,15 @@
-# project_uts
+PROJECT MOVIE APPS FLUTTER
 
-A new Flutter project.
+NAMA ANGGOTA KELOMPOK :
+1. PUTU WAHYU WARDAYA (42230016) : Membuat fitur login dan register
+2. I GUSTI NGURAH ABI PRAJA ANDIKA (42230045) : Membuat halaman Home 
+3. NI WAYAN ARININGSIH (42230060) : Membuat halaman Search
+4. I GEDE AGUS PERDANA PUTRA (42230058) : Membuat halaman Detail
 
-## Getting Started
+UPDATE :
+MENGGABUNGKAN SEMUA HALAMAN MENJADI SATU (Wahyu,Abi,Ariningsih,Degus)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Menambahkan Gambar di Login Page dan progres Profile Page (Wahyu) <br>
+2. Mengupdate tampilan di Home Page dan Bottom Navigasi (Abi) <br>
+3. Mengupdate tampilan di Search Page (Ariningsih) <br>
+4. Mengupdate tampilan di Detail Page (Degus) <br>
