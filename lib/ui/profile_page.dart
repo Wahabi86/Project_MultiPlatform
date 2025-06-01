@@ -117,7 +117,16 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Profil Saya'), backgroundColor: Colors.blue),
+        title: const Text(
+          'Profil Saya',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.black,
+        elevation: 1.5, // tingkat ketebalan bayangan
+        shadowColor: Colors.grey.withOpacity(0.5), // warna bayangan
+        iconTheme:
+            const IconThemeData(color: Colors.white), // jika pakai ikon back
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
