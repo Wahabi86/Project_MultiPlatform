@@ -26,22 +26,40 @@ class _HomePageState extends State<HomePage> {
     {
       "title": "Sumala",
       "rating": 4,
-      "poster": null,
+      "poster": "assets/images/Sumala.jpg",
     },
     {
-      "title": "Spiderman The Movie",
+      "title": "Komang",
       "rating": 4,
-      "poster": null,
+      "poster": "assets/images/Komang.jpg",
     },
     {
       "title": "Yowis Ben",
       "rating": 5,
-      "poster": null,
+      "poster": "assets/images/YowisBen.jpg",
     },
     {
       "title": "Perayaan Mati Rasa",
       "rating": 3,
-      "poster": null,
+      "poster": "assets/images/Perayaan.jpg",
+    },
+  ];
+
+  List<Map<String, dynamic>> banners = [
+    {
+      "title": "Gundala",
+      "rating": 5,
+      "poster": "assets/images/BannerGundala.jpg",
+    },
+    {
+      "title": "Malam Pencabut Nyawa",
+      "rating": 3.5,
+      "poster": 'assets/images/BannerMalam.jpg',
+    },
+    {
+      "title": "Mencuri Raden Saleh",
+      "rating": 5,
+      "poster": 'assets/images/BannerMencuri.jpg',
     },
   ];
 
@@ -74,13 +92,30 @@ class _HomePageState extends State<HomePage> {
               autoPlayAnimationDuration: Duration(milliseconds: 800),
               viewportFraction: 0.8,
             ),
-            items: [
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.grey[500]),
-              )
-            ],
+            items: banners.map((banner) {
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MovieDetailsPage(
+                        title: banner['title'],
+                        rating: (banner['rating'] as num).toDouble(),
+                        poster: banner['poster'],
+                      ),
+                    ),
+                  );
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.asset(
+                    banner['poster'],
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                  ),
+                ),
+              );
+            }).toList(),
           ),
           // memberikan jarak antar CarouselSlider dengan TabBar genre
           SizedBox(height: 30),
@@ -110,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 12,
-                  mainAxisSpacing: 16,
+                  mainAxisSpacing: 22,
                   childAspectRatio: 0.6,
                 ),
                 itemBuilder: (context, index) {
@@ -123,6 +158,7 @@ class _HomePageState extends State<HomePage> {
                           builder: (context) => MovieDetailsPage(
                             title: movie["title"],
                             rating: (movie["rating"] as num).toDouble(),
+                            poster: movie["poster"],
                           ),
                         ),
                       );
@@ -131,10 +167,11 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.grey[500],
-                              borderRadius: BorderRadius.circular(15),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: Image.asset(
+                              movie["poster"],
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),

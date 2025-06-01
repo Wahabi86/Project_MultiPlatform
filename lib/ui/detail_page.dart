@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class MovieDetailsPage extends StatelessWidget {
   final String title;
   final double rating;
+  final String poster;
 
   const MovieDetailsPage({
     super.key,
     required this.title,
     required this.rating,
+    required this.poster,
   });
 
   @override
@@ -26,13 +28,14 @@ class MovieDetailsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: 230,
-              decoration: BoxDecoration(
-                color: Colors.grey[700],
-                borderRadius: BorderRadius.circular(8),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                poster,
+                height: 500,
+                width: double.infinity,
+                fit: BoxFit.cover,
               ),
-              padding: EdgeInsets.all(16),
             ),
             SizedBox(height: 16),
             Text(
@@ -47,7 +50,9 @@ class MovieDetailsPage extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  rating.toString(),
+                  rating % 1 == 0
+                      ? rating.toInt().toString()
+                      : rating.toString(),
                   style: TextStyle(
                     color: Color(0xFFFFC700),
                     fontSize: 18,
