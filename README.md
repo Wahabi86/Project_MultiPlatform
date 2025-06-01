@@ -15,4 +15,3 @@ MENGGABUNGKAN SEMUA HALAMAN MENJADI SATU (Wahyu,Abi,Ariningsih,Degus)
 3. Mengupdate tampilan di Search Page (Ariningsih) <br>
 4. Mengupdate tampilan di Detail Page (Degus) <br>
 
-testing
