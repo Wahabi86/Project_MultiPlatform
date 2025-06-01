@@ -23,11 +23,12 @@ class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       backgroundColor: Colors.black,
       body: _pages[_selectedIndex],
       bottomNavigationBar: CurvedNavigationBar(
         index: _selectedIndex,
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
         color: Colors.grey[900]!,
         animationDuration: Duration(milliseconds: 300),
         items: const [
