@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:project_uts/login_page/register.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   static const String id = '/login';
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool _obscurePassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +51,7 @@ class LoginPage extends StatelessWidget {
               ),
               SizedBox(height: 10),
               TextField(
-                obscureText: true,
+                obscureText: _obscurePassword,
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   labelText: 'Password',
@@ -57,7 +64,24 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              Row(
+                children: [
+                  Checkbox(
+                    value: !_obscurePassword,
+                    activeColor: Colors.blue,
+                    onChanged: (value) {
+                      setState(() {
+                        _obscurePassword = !value!;
+                      });
+                    },
+                  ),
+                  Text(
+                    'Tampilkan Password',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
