@@ -1,0 +1,9 @@
+[33m97a82c1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{0}: pull: Fast-forward
+[33mf58cf47[m HEAD@{1}: reset: moving to HEAD
+[33mf58cf47[m HEAD@{2}: commit: update images and detail page
+[33m4cda902[m HEAD@{3}: pull --tags origin main: Merge made by the 'ort' strategy.
+[33m3b0793c[m HEAD@{4}: commit: update bottom nav and spacing
+[33m9652748[m HEAD@{5}: pull --tags origin main: Merge made by the 'ort' strategy.
+[33m3444c75[m HEAD@{6}: commit: update tampilan arrow detail
+[33me75011c[m HEAD@{7}: Branch: renamed refs/heads/master to refs/heads/main
+[33me75011c[m HEAD@{9}: commit (initial): publish project movieapps
