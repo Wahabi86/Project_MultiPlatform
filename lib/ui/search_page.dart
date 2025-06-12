@@ -18,6 +18,8 @@ class SearchPage extends StatelessWidget {
           "The world's most lethal odd couple bodyguard Michael Bryce and hitman Darius Kincaid are back on another mission."
     },
   ];
+
+  SearchPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

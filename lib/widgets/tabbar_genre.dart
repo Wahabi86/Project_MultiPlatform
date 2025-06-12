@@ -27,8 +27,9 @@ class GenresTabBar extends StatelessWidget {
                 margin: EdgeInsets.symmetric(horizontal: 5),
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 11),
                 decoration: BoxDecoration(
-                  color:
-                      selectedGenre == genre ? Colors.white : Color(0xFF2B2B2B),
+                  color: selectedGenre == genre
+                      ? Color(0xFFFFC700)
+                      : Color(0xFF2B2B2B),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(

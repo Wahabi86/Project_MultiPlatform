@@ -4,12 +4,14 @@ class MovieDetailsPage extends StatelessWidget {
   final String title;
   final double rating;
   final String poster;
+  final String genre;
 
   const MovieDetailsPage({
     super.key,
     required this.title,
     required this.rating,
     required this.poster,
+    required this.genre,
   });
 
   @override
@@ -69,6 +71,24 @@ class MovieDetailsPage extends StatelessWidget {
                   }),
                 ),
               ],
+            ),
+            SizedBox(height: 12),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: genre.split(',').map((g) {
+                return Container(
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: Color(0xFFFFC700),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                    g.trim(),
+                    style: TextStyle(color: Colors.black, fontSize: 14),
+                  ),
+                );
+              }).toList(),
             ),
             SizedBox(height: 24),
             Text(

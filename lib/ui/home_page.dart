@@ -16,16 +16,19 @@ List<Map<String, dynamic>> banners = [
     "title": "Gundala",
     "rating": 5,
     "poster": "assets/images/BannerGundala.jpg",
+    "genre": "Action, Drama"
   },
   {
     "title": "Malam Pencabut Nyawa",
     "rating": 3.5,
     "poster": 'assets/images/BannerMalam.jpg',
+    "genre": "Horor"
   },
   {
     "title": "Mencuri Raden Saleh",
     "rating": 5,
     "poster": 'assets/images/BannerMencuri.jpg',
+    "genre": "Action, Drama"
   },
 ];
 
@@ -34,7 +37,7 @@ class _HomePageState extends State<HomePage> {
   List<String> genres = [
     "All",
     "Action",
-    "Adventure",
+    "Drama",
     "Comedy",
     "Horror",
     "Romance"
@@ -45,31 +48,37 @@ class _HomePageState extends State<HomePage> {
       "title": "Sumala",
       "rating": 4,
       "poster": "assets/images/Sumala.jpg",
+      "genre": "Horor"
     },
     {
       "title": "Komang",
       "rating": 4,
       "poster": "assets/images/Komang.jpg",
+      "genre": "Romance"
     },
     {
       "title": "Yowis Ben",
       "rating": 5,
       "poster": "assets/images/YowisBen.jpg",
+      "genre": "Comedy, Romance"
     },
     {
       "title": "Perayaan Mati Rasa",
       "rating": 3,
       "poster": "assets/images/Perayaan.jpg",
+      "genre": "Drama"
     },
     {
       "title": "Warkop DKI Kartun",
       "rating": 5,
       "poster": "assets/images/DkiKartun.jpg",
+      "genre": "Comedy"
     },
     {
       "title": "Tinggal Meninggal",
       "rating": 4.5,
       "poster": "assets/images/TinggalMeninggal.jpg",
+      "genre": "Comedy, Drama"
     }
   ];
 
@@ -78,16 +87,19 @@ class _HomePageState extends State<HomePage> {
       "title": "Agak Laen",
       "rating": 4,
       "poster": "assets/images/RcdAgakLaen.jpg",
+      "genre": "Comedy"
     },
     {
       "title": "Anak Kolong",
       "rating": 4.5,
       "poster": "assets/images/RcdAnakKolong.jpg",
+      "genre": "Drama, Romance"
     },
     {
       "title": "Love Therapy",
       "rating": 5,
       "poster": "assets/images/RcdTherapy.jpg",
+      "genre": "Drama, Romance"
     },
   ];
 
@@ -98,7 +110,7 @@ class _HomePageState extends State<HomePage> {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.black,
         title: Text(
-          "Movie Apps",
+          "Mebalih Film",
           style: TextStyle(
               color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
         ),
@@ -130,6 +142,7 @@ class _HomePageState extends State<HomePage> {
                         title: banner['title'],
                         rating: (banner['rating'] as num).toDouble(),
                         poster: banner['poster'],
+                        genre: banner['genre'],
                       ),
                     ),
                   );
@@ -187,6 +200,7 @@ class _HomePageState extends State<HomePage> {
                             title: movie["title"],
                             rating: (movie["rating"] as num).toDouble(),
                             poster: movie["poster"],
+                            genre: movie['genre'],
                           ),
                         ),
                       );
@@ -275,11 +289,12 @@ class _HomePageState extends State<HomePage> {
                           title: movie["title"],
                           rating: (movie["rating"] as num).toDouble(),
                           poster: movie["poster"],
+                          genre: movie['genre'],
                         ),
                       ),
                     );
                   },
-                  child: Container(
+                  child: SizedBox(
                     width: 135,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
