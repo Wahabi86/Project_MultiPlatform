@@ -31,10 +31,13 @@ class _BottomNavState extends State<BottomNav> {
         backgroundColor: Colors.transparent,
         color: Colors.grey[900]!,
         animationDuration: Duration(milliseconds: 300),
-        items: const [
-          Icon(Icons.home, color: Colors.white),
-          Icon(Icons.search, color: Colors.white),
-          Icon(Icons.person, color: Colors.white),
+        items: [
+          Icon(Icons.home,
+              color: _selectedIndex == 0 ? Color(0xFFFFC700) : Colors.white),
+          Icon(Icons.search,
+              color: _selectedIndex == 1 ? Color(0xFFFFC700) : Colors.white),
+          Icon(Icons.person,
+              color: _selectedIndex == 2 ? Color(0xFFFFC700) : Colors.white),
         ],
         onTap: (index) {
           setState(() {

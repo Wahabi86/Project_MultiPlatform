@@ -1,10 +1,14 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
+import "package:project_uts/widgets/forum_chat.dart";
 
 class MovieDetailsPage extends StatelessWidget {
   final String title;
   final double rating;
   final String poster;
   final String genre;
+  final List<Map<String, String>>? actors;
+  final String? status;
+  final String? duration;
 
   const MovieDetailsPage({
     super.key,
@@ -12,102 +16,236 @@ class MovieDetailsPage extends StatelessWidget {
     required this.rating,
     required this.poster,
     required this.genre,
+    this.actors,
+    this.status,
+    this.duration,
   });
 
   @override
   Widget build(BuildContext context) {
+    final themeColor = Colors.black;
+    final accentColor = const Color(0xFFFFC700);
+    final tagBackground = Colors.grey.shade200;
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: themeColor),
+        elevation: 1,
         title: Text(
           title,
-          style: TextStyle(fontSize: 18, color: Colors.white),
+          style: TextStyle(
+            fontSize: 20,
+            color: themeColor,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
-                poster,
-                height: 500,
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
-            ),
-            SizedBox(height: 16),
-            Text(
-              title,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 8),
-            Row(
-              children: [
-                Text(
-                  rating % 1 == 0
-                      ? rating.toInt().toString()
-                      : rating.toString(),
-                  style: TextStyle(
-                    color: Color(0xFFFFC700),
-                    fontSize: 18,
-                  ),
+      body: Stack(
+        children: [
+          SafeArea(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Poster
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.asset(
+                        poster,
+                        height: 450,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+
+                    const SizedBox(height: 24),
+
+                    // Judul
+                    Text(
+                      title,
+                      style: TextStyle(
+                        color: themeColor,
+                        fontSize: 26,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+
+                    const SizedBox(height: 12),
+
+                    // Duration + Genre
+                    Wrap(
+                      spacing: 10,
+                      runSpacing: 10,
+                      children: [
+                        if (duration != null)
+                          _buildTag(duration!, tagBackground, themeColor),
+                        ...genre
+                            .split(",")
+                            .map((item) => _buildTag(
+                                item.trim(), tagBackground, themeColor))
+                            .toList(),
+                      ],
+                    ),
+
+                    const SizedBox(height: 16),
+
+                    // Rating
+                    Row(
+                      children: [
+                        Text(
+                          rating % 1 == 0
+                              ? rating.toInt().toString()
+                              : rating.toStringAsFixed(1),
+                          style: TextStyle(
+                            color: accentColor,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Row(
+                          children: List.generate(5, (index) {
+                            if (index < rating.floor()) {
+                              return Icon(Icons.star,
+                                  color: accentColor, size: 20);
+                            } else if (index < rating &&
+                                rating - index >= 0.5) {
+                              return Icon(Icons.star_half,
+                                  color: accentColor, size: 20);
+                            } else {
+                              return Icon(Icons.star_border,
+                                  color: accentColor, size: 20);
+                            }
+                          }),
+                        ),
+                      ],
+                    ),
+
+                    const SizedBox(height: 20),
+                    Divider(color: Colors.grey.shade300, thickness: 1),
+
+                    // Actors
+                    if (actors != null && actors!.isNotEmpty) ...[
+                      const SizedBox(height: 16),
+                      Text(
+                        "Actors",
+                        style: TextStyle(
+                          color: themeColor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      SizedBox(
+                        height: 120,
+                        child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: actors!.length,
+                          separatorBuilder: (_, __) =>
+                              const SizedBox(width: 16),
+                          itemBuilder: (context, index) {
+                            final actor = actors![index];
+                            return Column(
+                              children: [
+                                ClipOval(
+                                  child: Image.asset(
+                                    actor["photo"]!,
+                                    width: 70,
+                                    height: 70,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                const SizedBox(height: 6),
+                                SizedBox(
+                                  width: 80,
+                                  child: Text(
+                                    actor["name"]!,
+                                    style: TextStyle(
+                                      color: themeColor,
+                                      fontSize: 14,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+
+                    const SizedBox(height: 24),
+
+                    // Synopsis
+                    Text(
+                      "Synopsis",
+                      style: TextStyle(
+                        color: themeColor,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      "Deskripsi cerita disesuaikan dengan data film masing-masing...",
+                      style: TextStyle(
+                        color: Colors.grey.shade700,
+                        fontSize: 16,
+                        height: 1.4,
+                      ),
+                    ),
+
+                    // Status
+                    if (status != null) ...[
+                      const SizedBox(height: 24),
+                      Text(
+                        "Broadcast Status",
+                        style: TextStyle(
+                          color: themeColor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      Wrap(
+                        spacing: 10,
+                        runSpacing: 10,
+                        children: status!
+                            .split(",")
+                            .map((item) => _buildTag(
+                                item.trim(), tagBackground, themeColor))
+                            .toList(),
+                      ),
+                    ],
+                  ],
                 ),
-                SizedBox(width: 8),
-                Row(
-                  children: List.generate(rating.floor(), (index) {
-                    return Icon(
-                      Icons.star,
-                      color: Color(0xFFFFC700),
-                      size: 18,
-                    );
-                  }),
-                ),
-              ],
-            ),
-            SizedBox(height: 12),
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: genre.split(',').map((g) {
-                return Container(
-                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                  decoration: BoxDecoration(
-                    color: Color(0xFFFFC700),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(
-                    g.trim(),
-                    style: TextStyle(color: Colors.black, fontSize: 14),
-                  ),
-                );
-              }).toList(),
-            ),
-            SizedBox(height: 24),
-            Text(
-              'Alur Cerita',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 8),
-            Text(
-              "Deskripsi cerita disesuaikan dengan data film masing-masing...",
-              style: TextStyle(
-                color: Colors.grey[400],
-                fontSize: 16,
-              ),
-            ),
-          ],
+          ),
+          // Forum untuk Chat Button
+          const ForumChatButton(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTag(String text, Color bg, Color textColor) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: textColor,
+          fontSize: 14,
         ),
       ),
     );

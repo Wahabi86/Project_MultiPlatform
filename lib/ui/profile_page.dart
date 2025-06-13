@@ -1,7 +1,7 @@
-import 'dart:io';
-import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:project_uts/login_page/login.dart';
+import "dart:io";
+import "package:flutter/material.dart";
+import "package:image_picker/image_picker.dart";
+import "package:project_uts/login_page/login.dart";
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -13,8 +13,8 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   File? _image;
   final picker = ImagePicker();
-  String username = 'Cinephile';
-  String bio = 'Menjelajahi dunia sinematik, satu film pada satu waktu.';
+  String username = "Cinephile";
+  String bio = "Menjelajahi dunia sinematik, satu film pada satu waktu.";
 
   Future<void> _pickImage(ImageSource source) async {
     final pickedFile = await picker.pickImage(source: source);
@@ -36,7 +36,7 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text('Ganti Foto Profil',
+              const Text("Ganti Foto Profil",
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -44,7 +44,7 @@ class _ProfilePageState extends State<ProfilePage> {
               const SizedBox(height: 20),
               ListTile(
                 leading: const Icon(Icons.photo_library, color: Colors.white70),
-                title: const Text('Pilih dari Galeri',
+                title: const Text("Pilih dari Galeri",
                     style: TextStyle(color: Colors.white)),
                 onTap: () {
                   Navigator.pop(context);
@@ -53,7 +53,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               ListTile(
                 leading: const Icon(Icons.camera_alt, color: Colors.white70),
-                title: const Text('Ambil dengan Kamera',
+                title: const Text("Ambil dengan Kamera",
                     style: TextStyle(color: Colors.white)),
                 onTap: () {
                   Navigator.pop(context);
@@ -86,7 +86,7 @@ class _ProfilePageState extends State<ProfilePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'Edit Profil',
+                "Edit Profil",
                 style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
@@ -97,7 +97,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 controller: usernameController,
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                  labelText: 'Username',
+                  labelText: "Username",
                   labelStyle: const TextStyle(color: Colors.white70),
                   filled: true,
                   fillColor: Colors.black.withOpacity(0.3),
@@ -113,7 +113,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 style: const TextStyle(color: Colors.white),
                 maxLines: 3,
                 decoration: InputDecoration(
-                  labelText: 'Bio',
+                  labelText: "Bio",
                   labelStyle: const TextStyle(color: Colors.white70),
                   filled: true,
                   fillColor: Colors.black.withOpacity(0.3),
@@ -143,7 +143,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: const Text('Save'),
+                  child: const Text("Save"),
                 ),
               ),
             ],
@@ -209,7 +209,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ElevatedButton.icon(
                   onPressed: _showEditModal,
                   icon: const Icon(Icons.settings),
-                  label: const Text('Edit Profile'),
+                  label: const Text("Edit Profile"),
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
                     backgroundColor: Colors.white.withOpacity(0.1),
@@ -228,7 +228,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Navigator.pushNamed(context, LoginPage.id);
                   },
                   icon: const Icon(Icons.logout),
-                  label: const Text('Logout'),
+                  label: const Text("Logout"),
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.redAccent,
                     padding: const EdgeInsets.symmetric(

@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:project_uts/ui/detail_page.dart';
-import 'package:project_uts/widgets/tabbar_genre.dart';
-// import 'package:project_uts/widgets/bottom_nav.dart';
+import "package:flutter/material.dart";
+import "package:carousel_slider/carousel_slider.dart";
+import "package:project_uts/ui/detail_page.dart";
+import "package:project_uts/widgets/tabbar_genre.dart";
+// import "package:project_uts/widgets/bottom_nav.dart";
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,13 +21,13 @@ List<Map<String, dynamic>> banners = [
   {
     "title": "Malam Pencabut Nyawa",
     "rating": 3.5,
-    "poster": 'assets/images/BannerMalam.jpg',
+    "poster": "assets/images/BannerMalam.jpg",
     "genre": "Horor"
   },
   {
     "title": "Mencuri Raden Saleh",
     "rating": 5,
-    "poster": 'assets/images/BannerMencuri.jpg',
+    "poster": "assets/images/BannerMencuri.jpg",
     "genre": "Action, Drama"
   },
 ];
@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
     },
     {
       "title": "Yowis Ben",
-      "rating": 5,
+      "rating": 2.5,
       "poster": "assets/images/YowisBen.jpg",
       "genre": "Comedy, Romance"
     },
@@ -66,7 +66,15 @@ class _HomePageState extends State<HomePage> {
       "title": "Perayaan Mati Rasa",
       "rating": 3,
       "poster": "assets/images/Perayaan.jpg",
-      "genre": "Drama"
+      "genre": "Drama, Action",
+      "duration": "1hr 2 min",
+      "status": "XXI, Cinepolis",
+      "actors": [
+        {"name": "Iqbaal Ramadhan", "photo": "assets/images/actors/iqbaal.jpg"},
+        {"name": "Umay Shahab", "photo": "assets/images/actors/umay.jpg"},
+        {"name": "Devano Danendra", "photo": "assets/images/actors/devano.jpg"},
+        {"name": "Dul Jaelani", "photo": "assets/images/actors/dul.jpg"},
+      ]
     },
     {
       "title": "Warkop DKI Kartun",
@@ -108,11 +116,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         title: Text(
           "Mebalih Film",
           style: TextStyle(
-              color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
+              color: Colors.black, fontSize: 32, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -139,10 +147,10 @@ class _HomePageState extends State<HomePage> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => MovieDetailsPage(
-                        title: banner['title'],
-                        rating: (banner['rating'] as num).toDouble(),
-                        poster: banner['poster'],
-                        genre: banner['genre'],
+                        title: banner["title"],
+                        rating: (banner["rating"] as num).toDouble(),
+                        poster: banner["poster"],
+                        genre: banner["genre"],
                       ),
                     ),
                   );
@@ -150,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
                   child: Image.asset(
-                    banner['poster'],
+                    banner["poster"],
                     fit: BoxFit.cover,
                     width: double.infinity,
                   ),
@@ -200,7 +208,13 @@ class _HomePageState extends State<HomePage> {
                             title: movie["title"],
                             rating: (movie["rating"] as num).toDouble(),
                             poster: movie["poster"],
-                            genre: movie['genre'],
+                            genre: movie["genre"],
+                            actors: movie["actors"] != null
+                                ? List<Map<String, String>>.from(
+                                    movie["actors"])
+                                : null,
+                            status: movie["status"],
+                            duration: movie["duration"],
                           ),
                         ),
                       );
@@ -221,7 +235,7 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           movie["title"],
                           style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                              color: Colors.black, fontWeight: FontWeight.bold),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -230,7 +244,7 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Text(
                               movie["rating"].toString(),
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.black),
                             ),
                             SizedBox(width: 4),
                             Icon(Icons.star,
@@ -259,9 +273,9 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
-              'Recommendations',
+              "Recommendations",
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
@@ -289,7 +303,7 @@ class _HomePageState extends State<HomePage> {
                           title: movie["title"],
                           rating: (movie["rating"] as num).toDouble(),
                           poster: movie["poster"],
-                          genre: movie['genre'],
+                          genre: movie["genre"],
                         ),
                       ),
                     );
@@ -312,7 +326,7 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           movie["title"],
                           style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                              color: Colors.black, fontWeight: FontWeight.bold),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),

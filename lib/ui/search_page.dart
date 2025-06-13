@@ -1,20 +1,20 @@
-import 'package:flutter/material.dart';
-import 'package:project_uts/widgets/search_bar.dart';
+import "package:flutter/material.dart";
+import "package:project_uts/widgets/search_bar.dart";
 
 class SearchPage extends StatelessWidget {
   final List<Map<String, dynamic>> searchResults = [
     {
-      'title': "Hitman's Wife's Bodyguard",
-      'rating': 3.5,
-      'genres': "Comedy",
-      'description':
+      "title": "Hitman's Wife's Bodyguard",
+      "rating": 3.5,
+      "genres": "Comedy",
+      "description":
           "The world's most lethal odd couple bodyguard Michael Bryce and hitman Darius Kincaid are back on another mission."
     },
     {
-      'title': "Hitman's Wife's Bodyguard",
-      'rating': 4,
-      'genres': "Action",
-      'description':
+      "title": "Hitman's Wife's Bodyguard",
+      "rating": 4,
+      "genres": "Action",
+      "description":
           "The world's most lethal odd couple bodyguard Michael Bryce and hitman Darius Kincaid are back on another mission."
     },
   ];
@@ -33,7 +33,7 @@ class SearchPage extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Search results (${searchResults.length})',
+                "Search results (${searchResults.length})",
                 style: TextStyle(color: Colors.white70),
               ),
             ),
@@ -58,7 +58,7 @@ class SearchPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              movie['title'],
+                              movie["title"],
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -69,7 +69,7 @@ class SearchPage extends StatelessWidget {
                             Row(
                               children: List.generate(5, (i) {
                                 return Icon(
-                                  i < movie['rating'].floor()
+                                  i < movie["rating"].floor()
                                       ? Icons.star
                                       : Icons.star_border,
                                   color: Colors.yellow,
@@ -81,14 +81,14 @@ class SearchPage extends StatelessWidget {
                               height: 4,
                             ),
                             Text(
-                              movie['genres'],
+                              movie["genres"],
                               style: TextStyle(color: Colors.white70),
                             ),
                             SizedBox(
                               height: 4,
                             ),
                             Text(
-                              movie['description'],
+                              movie["description"],
                               style: TextStyle(color: Colors.white54),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
