@@ -83,7 +83,7 @@ List<Map<String, dynamic>> movies = [
     "poster": "assets/images/Perayaan.jpg",
     "genre": "Drama, Action",
     "duration": "1hr 2 min",
-    "status": "XXI, Cinepolis,",
+    "status": "XXI, Cinepolis",
     "actors": [
       {"name": "Iqbaal Ramadhan", "photo": "assets/images/actors/iqbaal.jpg"},
       {"name": "Umay Shahab", "photo": "assets/images/actors/umay.jpg"},
