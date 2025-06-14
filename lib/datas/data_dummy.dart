@@ -7,10 +7,7 @@ List<Map<String, dynamic>> banners = [
     "duration": "2hr 3 min",
     "status": "XXI, Cinepolis",
     "actors": [
-      {
-        "name": "Abimana Arya",
-        "photo": "assets/images/actors/AbimanaAryasatya.jpg"
-      },
+      {"name": "Abimana Arya", "photo": "assets/images/actors/abimana.jpg"},
       {"name": "Ario Bayu", "photo": "assets/images/actors/Ario Bayu.jpg"},
       {
         "name": "Bront Palarae",
