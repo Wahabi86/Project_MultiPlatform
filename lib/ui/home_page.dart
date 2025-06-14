@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
       "title": "Sumala",
       "rating": 4,
       "poster": "assets/images/Sumala.jpg",
-      "genre": "Horor"
+      "genre": "Horor",
     },
     {
       "title": "Komang",
@@ -114,30 +114,46 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
         title: Text(
           "Mebalih Film",
           style: TextStyle(
-              color: Colors.black, fontSize: 32, fontWeight: FontWeight.bold),
+            color: Color(0xFF0F172A),
+            fontSize: 26,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-        centerTitle: true,
       ),
       body: ListView(
         children: [
-          // Memberikan jarak antar search bar dengan CarouselSlider
-          SizedBox(height: 25),
+          SizedBox(height: 20),
 
-          // membuat movie auto play dengan CarouselSlider
+          // COMING SOON TITLE
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
+              "Coming Soon",
+              style: TextStyle(
+                color: Color(0xFF0F172A),
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          SizedBox(height: 16),
+
+          // BANNER
           CarouselSlider(
             options: CarouselOptions(
               autoPlay: true,
-              height: 250,
+              height: 230,
               enlargeCenterPage: true,
               aspectRatio: 16 / 9,
-              enableInfiniteScroll: true,
-              autoPlayAnimationDuration: Duration(milliseconds: 800),
               viewportFraction: 0.8,
             ),
             items: banners.map((banner) {
@@ -156,20 +172,18 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(16),
                   child: Image.asset(
                     banner["poster"],
                     fit: BoxFit.cover,
-                    width: double.infinity,
                   ),
                 ),
               );
             }).toList(),
           ),
-          // memberikan jarak antar CarouselSlider dengan TabBar genre
-          SizedBox(height: 30),
+          SizedBox(height: 25),
 
-          // Genre TabBar
+          // GENRE TAB
           GenresTabBar(
             genres: genres,
             selectedGenre: selectedGenre,
@@ -179,112 +193,133 @@ class _HomePageState extends State<HomePage> {
               });
             },
           ),
+          SizedBox(height: 20),
 
-          // memberikan jarak antar konten genre TabBar dengan konten card movie
-          SizedBox(height: 30),
-
-          // card movie per-genre
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: SizedBox(
-              child: GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: movies.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 25,
-                  childAspectRatio: 0.6,
-                ),
-                itemBuilder: (context, index) {
-                  final movie = movies[index];
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MovieDetailsPage(
-                            title: movie["title"],
-                            rating: (movie["rating"] as num).toDouble(),
-                            poster: movie["poster"],
-                            genre: movie["genre"],
-                            actors: movie["actors"] != null
-                                ? List<Map<String, String>>.from(
-                                    movie["actors"])
-                                : null,
-                            status: movie["status"],
-                            duration: movie["duration"],
-                          ),
-                        ),
-                      );
-                    },
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: Image.asset(
-                              movie["poster"],
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          movie["title"],
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        SizedBox(height: 4),
-                        Row(
-                          children: [
-                            Text(
-                              movie["rating"].toString(),
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            SizedBox(width: 4),
-                            Icon(Icons.star,
-                                color: Color(0xFFFFC700), size: 16),
-                          ],
-                        )
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-          ),
-          // spacing sebelum section Recommendations
-          SizedBox(height: 30),
-
-          // Garis Horizontal
-          Divider(
-            color: Colors.grey,
-            thickness: 1,
-            height: 1,
-          ),
-          SizedBox(height: 18),
-
-          // Judul Recomendations
+          // NOW SHOWING TITLE
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
-              "Recommendations",
+              "Now Showing",
               style: TextStyle(
-                color: Colors.black,
+                color: Color(0xFF0F172A),
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
-
           SizedBox(height: 16),
 
-          // Horizontal card movie
+          // GRID MOVIES
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: GridView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: movies.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 20,
+                childAspectRatio: 0.6,
+              ),
+              itemBuilder: (context, index) {
+                final movie = movies[index];
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MovieDetailsPage(
+                          title: movie["title"],
+                          rating: (movie["rating"] as num).toDouble(),
+                          poster: movie["poster"],
+                          genre: movie["genre"],
+                          actors: movie["actors"] != null
+                              ? List<Map<String, String>>.from(movie["actors"])
+                              : null,
+                          status: movie["status"],
+                          duration: movie["duration"],
+                        ),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 6,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: ClipRRect(
+                            borderRadius:
+                                BorderRadius.vertical(top: Radius.circular(16)),
+                            child: Image.asset(
+                              movie["poster"],
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(8),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                movie["title"],
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF0F172A),
+                                ),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              SizedBox(height: 4),
+                              Row(
+                                children: [
+                                  Text(
+                                    movie["rating"].toString(),
+                                    style: TextStyle(color: Colors.grey[800]),
+                                  ),
+                                  SizedBox(width: 4),
+                                  Icon(Icons.star,
+                                      color: Color(0xFFFFD700), size: 16),
+                                ],
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+          SizedBox(height: 30),
+
+          // RECOMMENDATION SECTION
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
+              "Recommendations",
+              style: TextStyle(
+                color: Color(0xFF0F172A),
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          SizedBox(height: 16),
           SizedBox(
             height: 300,
             child: ListView.separated(
@@ -308,42 +343,61 @@ class _HomePageState extends State<HomePage> {
                       ),
                     );
                   },
-                  child: SizedBox(
+                  child: Container(
                     width: 135,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(14),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 6,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(14)),
                           child: Image.asset(
                             movie["poster"],
-                            height: 220,
-                            width: 130,
+                            height: 210,
+                            width: 135,
                             fit: BoxFit.cover,
                           ),
                         ),
-                        SizedBox(height: 8),
-                        Text(
-                          movie["title"],
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        SizedBox(height: 4),
-                        Row(
-                          children: [
-                            Text(
-                              movie["rating"] % 1 == 0
-                                  ? movie["rating"].toInt().toString()
-                                  : movie["rating"].toString(),
-                              style: TextStyle(color: Color(0xFFFFC700)),
-                            ),
-                            SizedBox(width: 4),
-                            Icon(Icons.star,
-                                color: Color(0xFFFFC700), size: 16),
-                          ],
-                        ),
+                        Padding(
+                          padding: EdgeInsets.all(8),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                movie["title"],
+                                style: TextStyle(
+                                  color: Color(0xFF0F172A),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              SizedBox(height: 4),
+                              Row(
+                                children: [
+                                  Text(
+                                    movie["rating"].toString(),
+                                    style: TextStyle(color: Colors.grey[800]),
+                                  ),
+                                  SizedBox(width: 4),
+                                  Icon(Icons.star,
+                                      color: Color(0xFFFFD700), size: 16),
+                                ],
+                              )
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -351,6 +405,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
+          SizedBox(height: 24),
         ],
       ),
     );
