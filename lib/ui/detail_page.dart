@@ -3,7 +3,7 @@ import "package:project_uts/widgets/forum_chat.dart";
 
 class MovieDetailsPage extends StatelessWidget {
   final String title;
-  final double rating;
+  final double? rating;
   final String poster;
   final String genre;
   final List<Map<String, String>>? actors;
@@ -13,7 +13,7 @@ class MovieDetailsPage extends StatelessWidget {
   const MovieDetailsPage({
     super.key,
     required this.title,
-    required this.rating,
+    this.rating,
     required this.poster,
     required this.genre,
     this.actors,
@@ -93,39 +93,40 @@ class MovieDetailsPage extends StatelessWidget {
                     const SizedBox(height: 16),
 
                     // Rating
-                    Row(
-                      children: [
-                        Text(
-                          rating % 1 == 0
-                              ? rating.toInt().toString()
-                              : rating.toStringAsFixed(1),
-                          style: TextStyle(
-                            color: accentColor,
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
+                    if (rating != null) ...[
+                      Row(
+                        children: [
+                          Text(
+                            rating! % 1 == 0
+                                ? rating!.toInt().toString()
+                                : rating!.toStringAsFixed(1),
+                            style: TextStyle(
+                              color: accentColor,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 8),
-                        Row(
-                          children: List.generate(5, (index) {
-                            if (index < rating.floor()) {
-                              return Icon(Icons.star,
-                                  color: accentColor, size: 20);
-                            } else if (index < rating &&
-                                rating - index >= 0.5) {
-                              return Icon(Icons.star_half,
-                                  color: accentColor, size: 20);
-                            } else {
-                              return Icon(Icons.star_border,
-                                  color: accentColor, size: 20);
-                            }
-                          }),
-                        ),
-                      ],
-                    ),
-
-                    const SizedBox(height: 20),
-                    Divider(color: Colors.grey.shade300, thickness: 1),
+                          const SizedBox(width: 8),
+                          Row(
+                            children: List.generate(5, (index) {
+                              if (index < rating!.floor()) {
+                                return Icon(Icons.star,
+                                    color: accentColor, size: 20);
+                              } else if (index < rating! &&
+                                  rating! - index >= 0.5) {
+                                return Icon(Icons.star_half,
+                                    color: accentColor, size: 20);
+                              } else {
+                                return Icon(Icons.star_border,
+                                    color: accentColor, size: 20);
+                              }
+                            }),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      Divider(color: Colors.grey.shade300, thickness: 1),
+                    ],
 
                     // Actors
                     if (actors != null && actors!.isNotEmpty) ...[

@@ -1,7 +1,6 @@
 List<Map<String, dynamic>> banners = [
   {
     "title": "Gundala",
-    "rating": 4.5,
     "poster": "assets/images/BannerGundala.jpg",
     "genre": "Action, Drama",
     "duration": "-",
