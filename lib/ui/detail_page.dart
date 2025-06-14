@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:project_uts/widgets/forum_chat.dart";
+import 'package:url_launcher/url_launcher.dart';
 
 class MovieDetailsPage extends StatelessWidget {
   final String title;
@@ -216,11 +217,21 @@ class MovieDetailsPage extends StatelessWidget {
                       Wrap(
                         spacing: 10,
                         runSpacing: 10,
-                        children: status!
-                            .split(",")
-                            .map((item) => _buildTag(
-                                item.trim(), tagBackground, themeColor))
-                            .toList(),
+                        children: status!.split(",").map((item) {
+                          final label = item.trim();
+                          String? url;
+
+                          if (label.toLowerCase() == "xxi") {
+                            url = "https://m.21cineplex.com/id";
+                          } else if (label.toLowerCase() == "cinepolis") {
+                            url = "https://cinepolis.co.id/";
+                          }
+
+                          return GestureDetector(
+                            onTap: url != null ? () => _launchURL(url!) : null,
+                            child: _buildTag(label, tagBackground, themeColor),
+                          );
+                        }).toList(),
                       ),
                     ],
                   ],
@@ -250,5 +261,14 @@ class MovieDetailsPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
