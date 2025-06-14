@@ -93,7 +93,15 @@ class _HomePageState extends State<HomePage> {
       "title": "Yowis Ben",
       "rating": 2.5,
       "poster": "assets/images/YowisBen.jpg",
-      "genre": "Comedy, Romance"
+      "genre": "Comedy, Romance",
+      "duration": "1hr min",
+      "status": "XXI, Cinepolis",
+      "actors": [
+        {"name": "Bayu Skak", "photo": "assets/images/actors/skak.jpg"},
+        {"name": "Joshua Suherman", "photo": "assets/images/actors/josua.jpg"},
+        {"name": "Brandon Salim", "photo": "assets/images/actors/brandon.jpg"},
+        {"name": "Tutus Thomson", "photo": "assets/images/actors/tutus.jpg"},
+      ]
     },
     {
       "title": "Perayaan Mati Rasa",
@@ -101,7 +109,7 @@ class _HomePageState extends State<HomePage> {
       "poster": "assets/images/Perayaan.jpg",
       "genre": "Drama, Action",
       "duration": "1hr 2 min",
-      "status": "XXI, Cinepolis, Imax",
+      "status": "XXI, Cinepolis,",
       "actors": [
         {"name": "Iqbaal Ramadhan", "photo": "assets/images/actors/iqbaal.jpg"},
         {"name": "Umay Shahab", "photo": "assets/images/actors/umay.jpg"},
@@ -114,20 +122,31 @@ class _HomePageState extends State<HomePage> {
       "rating": 5,
       "poster": "assets/images/DkiKartun.jpg",
       "genre": "Comedy",
-      "duration": "1hr 2 min",
-      "status": "XXI, Cinepolis, Imax",
+      "duration": "-",
+      "status": "Cooming Soon",
       "actors": [
-        {"name": "Iqbaal Ramadhan", "photo": "assets/images/actors/iqbaal.jpg"},
-        {"name": "Umay Shahab", "photo": "assets/images/actors/umay.jpg"},
-        {"name": "Devano Danendra", "photo": "assets/images/actors/devano.jpg"},
-        {"name": "Dul Jaelani", "photo": "assets/images/actors/dul.jpg"},
+        {"name": "Indro Warkop", "photo": "assets/images/actors/indro.jpg"},
+        {
+          "name": "Aliando Syarief",
+          "photo": "assets/images/actors/aliando.jpg"
+        },
+        {"name": "Adipati Dolken", "photo": "assets/images/actors/adipati.jpg"},
+        {"name": "Randy Danistha", "photo": "assets/images/actors/randy.jpg"},
       ]
     },
     {
       "title": "Tinggal Meninggal",
       "rating": 4.5,
       "poster": "assets/images/TinggalMeninggal.jpg",
-      "genre": "Comedy, Drama"
+      "genre": "Comedy, Drama",
+      "duration": "-",
+      "status": "Cooming Soon",
+      "actors": [
+        {"name": "Omara Esteghlal", "photo": "assets/images/actors/omara.jpg"},
+        {"name": "Mawar de Jongh", "photo": "assets/images/actors/mawar.jpg"},
+        {"name": "Shindy Huang", "photo": "assets/images/actors/shindy.jpg"},
+        {"name": "Nada Novia", "photo": "assets/images/actors/nada.jpg"},
+      ]
     }
   ];
 
@@ -136,7 +155,18 @@ class _HomePageState extends State<HomePage> {
       "title": "Agak Laen",
       "rating": 4,
       "poster": "assets/images/RcdAgakLaen.jpg",
-      "genre": "Comedy"
+      "genre": "Comedy",
+      "duration": "1hr 59min",
+      "status": "XXI,NETFLIX,Cinepolis ",
+      "actors": [
+        {"name": "Indra Jegel", "photo": "assets/images/actors/jegel.jpg"},
+        {"name": "Boris Bokir", "photo": "assets/images/actors/boris.jpg"},
+        {
+          "name": "Bene Dion Rajagukguk",
+          "photo": "assets/images/actors/bene.jpg"
+        },
+        {"name": "Oki Rengga", "photo": "assets/images/actors/oki.jpg"},
+      ]
     },
     {
       "title": "Anak Kolong",
