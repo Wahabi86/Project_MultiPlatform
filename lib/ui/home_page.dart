@@ -1,8 +1,8 @@
-import "package:flutter/material.dart";
-import "package:carousel_slider/carousel_slider.dart";
-import "package:project_uts/ui/detail_page.dart";
-import "package:project_uts/widgets/tabbar_genre.dart";
-// import "package:project_uts/widgets/bottom_nav.dart";
+import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:project_uts/ui/detail_page.dart';
+import 'package:project_uts/widgets/tabbar_genre.dart';
+import 'package:project_uts/datas/data_dummy.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,41 +10,6 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
-
-List<Map<String, dynamic>> banners = [
-  {
-    "title": "Gundala",
-    "rating": 5,
-    "poster": "assets/images/BannerGundala.jpg",
-    "genre": "Action, Drama",
-    "duration": "2hr 3 min",
-    "status": "XXI, Cinepolis",
-    "actors": [
-      {
-        "name": "Abimana Arya",
-        "photo": "assets/images/actors/AbimanaAryasatya.jpg"
-      },
-      {"name": "Ario Bayu", "photo": "assets/images/actors/Ario Bayu.jpg"},
-      {
-        "name": "Bront Palarae",
-        "photo": "assets/images/actors/Bront Palarae.jpg"
-      },
-      {"name": "Tara Basro", "photo": "assets/images/actors/tarabasro.jpg"},
-    ]
-  },
-  {
-    "title": "Malam Pencabut Nyawa",
-    "rating": 3.5,
-    "poster": "assets/images/BannerMalam.jpg",
-    "genre": "Horor"
-  },
-  {
-    "title": "Mencuri Raden Saleh",
-    "rating": 5,
-    "poster": "assets/images/BannerMencuri.jpg",
-    "genre": "Action, Drama"
-  },
-];
 
 class _HomePageState extends State<HomePage> {
   String selectedGenre = "All";
@@ -57,158 +22,49 @@ class _HomePageState extends State<HomePage> {
     "Romance"
   ];
 
-  List<Map<String, dynamic>> movies = [
-    {
-      "title": "Sumala",
-      "rating": 4,
-      "poster": "assets/images/Sumala.jpg",
-      "genre": "Horor",
-      "duration": "1hr 25 min",
-      "status": "XXI, Cinepolis",
-      "actors": [
-        {
-          "name": "Achmad Megantara",
-          "photo": "assets/images/actors/achmad.jpg"
-        },
-        {"name": "Luna Maya", "photo": "assets/images/actors/luna.jpg"},
-        {"name": "Sally Marcelina", "photo": "assets/images/actors/sally.jpg"},
-        {"name": "Tio Pakusadewo", "photo": "assets/images/actors/tio.jpg"},
-      ]
-    },
-    {
-      "title": "Komang",
-      "rating": 4,
-      "poster": "assets/images/Komang.jpg",
-      "genre": "Romance",
-      "duration": "1hr 47 min",
-      "status": "XXI, Cinepolis",
-      "actors": [
-        {"name": "Aurora Ribero", "photo": "assets/images/actors/aurora.jpg"},
-        {"name": "Kiesha Alvaro ", "photo": "assets/images/actors/alvaro.jpg"},
-        {"name": "Cut Mini Theo", "photo": "assets/images/actors/cutmini.jpg"},
-        {"name": "Ayu Laksmi", "photo": "assets/images/actors/laksmi.jpg"},
-      ]
-    },
-    {
-      "title": "Yowis Ben",
-      "rating": 2.5,
-      "poster": "assets/images/YowisBen.jpg",
-      "genre": "Comedy, Romance",
-      "duration": "1hr min",
-      "status": "XXI, Cinepolis",
-      "actors": [
-        {"name": "Bayu Skak", "photo": "assets/images/actors/skak.jpg"},
-        {"name": "Joshua Suherman", "photo": "assets/images/actors/josua.jpg"},
-        {"name": "Brandon Salim", "photo": "assets/images/actors/brandon.jpg"},
-        {"name": "Tutus Thomson", "photo": "assets/images/actors/tutus.jpg"},
-      ]
-    },
-    {
-      "title": "Perayaan Mati Rasa",
-      "rating": 3,
-      "poster": "assets/images/Perayaan.jpg",
-      "genre": "Drama, Action",
-      "duration": "1hr 2 min",
-      "status": "XXI, Cinepolis,",
-      "actors": [
-        {"name": "Iqbaal Ramadhan", "photo": "assets/images/actors/iqbaal.jpg"},
-        {"name": "Umay Shahab", "photo": "assets/images/actors/umay.jpg"},
-        {"name": "Devano Danendra", "photo": "assets/images/actors/devano.jpg"},
-        {"name": "Dul Jaelani", "photo": "assets/images/actors/dul.jpg"},
-      ]
-    },
-    {
-      "title": "Warkop DKI Kartun",
-      "rating": 5,
-      "poster": "assets/images/DkiKartun.jpg",
-      "genre": "Comedy",
-      "duration": "-",
-      "status": "Cooming Soon",
-      "actors": [
-        {"name": "Indro Warkop", "photo": "assets/images/actors/indro.jpg"},
-        {
-          "name": "Aliando Syarief",
-          "photo": "assets/images/actors/aliando.jpg"
-        },
-        {"name": "Adipati Dolken", "photo": "assets/images/actors/adipati.jpg"},
-        {"name": "Randy Danistha", "photo": "assets/images/actors/randy.jpg"},
-      ]
-    },
-    {
-      "title": "Tinggal Meninggal",
-      "rating": 4.5,
-      "poster": "assets/images/TinggalMeninggal.jpg",
-      "genre": "Comedy, Drama",
-      "duration": "-",
-      "status": "Cooming Soon",
-      "actors": [
-        {"name": "Omara Esteghlal", "photo": "assets/images/actors/omara.jpg"},
-        {"name": "Mawar de Jongh", "photo": "assets/images/actors/mawar.jpg"},
-        {"name": "Shindy Huang", "photo": "assets/images/actors/shindy.jpg"},
-        {"name": "Nada Novia", "photo": "assets/images/actors/nada.jpg"},
-      ]
-    }
-  ];
-
-  List<Map<String, dynamic>> recommendations = [
-    {
-      "title": "Agak Laen",
-      "rating": 4,
-      "poster": "assets/images/RcdAgakLaen.jpg",
-      "genre": "Comedy",
-      "duration": "1hr 59min",
-      "status": "XXI,NETFLIX,Cinepolis ",
-      "actors": [
-        {"name": "Indra Jegel", "photo": "assets/images/actors/jegel.jpg"},
-        {"name": "Boris Bokir", "photo": "assets/images/actors/boris.jpg"},
-        {
-          "name": "Bene Dion Rajagukguk",
-          "photo": "assets/images/actors/bene.jpg"
-        },
-        {"name": "Oki Rengga", "photo": "assets/images/actors/oki.jpg"},
-      ]
-    },
-    {
-      "title": "Anak Kolong",
-      "rating": 4.5,
-      "poster": "assets/images/RcdAnakKolong.jpg",
-      "genre": "Drama, Romance"
-    },
-    {
-      "title": "Love Therapy",
-      "rating": 5,
-      "poster": "assets/images/RcdTherapy.jpg",
-      "genre": "Drama, Romance"
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
-        title: Text(
+        elevation: 0,
+        centerTitle: true,
+        title: const Text(
           "Mebalih Film",
           style: TextStyle(
-              color: Colors.black, fontSize: 32, fontWeight: FontWeight.bold),
+            color: Color(0xFF0F172A),
+            fontSize: 26,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-        centerTitle: true,
       ),
       body: ListView(
         children: [
-          // Memberikan jarak antar search bar dengan CarouselSlider
-          SizedBox(height: 25),
+          const SizedBox(height: 20),
 
-          // membuat movie auto play dengan CarouselSlider
+          // COMING SOON
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
+              "Coming Soon",
+              style: TextStyle(
+                color: Color(0xFF0F172A),
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+
+          // BANNER CAROUSEL
           CarouselSlider(
             options: CarouselOptions(
               autoPlay: true,
-              height: 250,
+              height: 230,
               enlargeCenterPage: true,
               aspectRatio: 16 / 9,
-              enableInfiniteScroll: true,
-              autoPlayAnimationDuration: Duration(milliseconds: 800),
               viewportFraction: 0.8,
             ),
             items: banners.map((banner) {
@@ -222,25 +78,28 @@ class _HomePageState extends State<HomePage> {
                         rating: (banner["rating"] as num).toDouble(),
                         poster: banner["poster"],
                         genre: banner["genre"],
+                        duration: banner["duration"],
+                        status: banner["status"],
+                        actors: banner["actors"] != null
+                            ? List<Map<String, String>>.from(banner["actors"])
+                            : null,
                       ),
                     ),
                   );
                 },
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(16),
                   child: Image.asset(
                     banner["poster"],
                     fit: BoxFit.cover,
-                    width: double.infinity,
                   ),
                 ),
               );
             }).toList(),
           ),
-          // memberikan jarak antar CarouselSlider dengan TabBar genre
-          SizedBox(height: 30),
+          const SizedBox(height: 25),
 
-          // Genre TabBar
+          // GENRE TAB
           GenresTabBar(
             genres: genres,
             selectedGenre: selectedGenre,
@@ -250,119 +109,140 @@ class _HomePageState extends State<HomePage> {
               });
             },
           ),
+          const SizedBox(height: 20),
 
-          // memberikan jarak antar konten genre TabBar dengan konten card movie
-          SizedBox(height: 30),
-
-          // card movie per-genre
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: SizedBox(
-              child: GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: movies.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 25,
-                  childAspectRatio: 0.6,
-                ),
-                itemBuilder: (context, index) {
-                  final movie = movies[index];
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MovieDetailsPage(
-                            title: movie["title"],
-                            rating: (movie["rating"] as num).toDouble(),
-                            poster: movie["poster"],
-                            genre: movie["genre"],
-                            actors: movie["actors"] != null
-                                ? List<Map<String, String>>.from(
-                                    movie["actors"])
-                                : null,
-                            status: movie["status"],
-                            duration: movie["duration"],
-                          ),
-                        ),
-                      );
-                    },
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: Image.asset(
-                              movie["poster"],
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          movie["title"],
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        SizedBox(height: 4),
-                        Row(
-                          children: [
-                            Text(
-                              movie["rating"].toString(),
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            SizedBox(width: 4),
-                            Icon(Icons.star,
-                                color: Color(0xFFFFC700), size: 16),
-                          ],
-                        )
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-          ),
-          // spacing sebelum section Recommendations
-          SizedBox(height: 30),
-
-          // Garis Horizontal
-          Divider(
-            color: Colors.grey,
-            thickness: 1,
-            height: 1,
-          ),
-          SizedBox(height: 18),
-
-          // Judul Recomendations
-          Padding(
+          // NOW SHOWING
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
-              "Recommendations",
+              "Now Showing",
               style: TextStyle(
-                color: Colors.black,
+                color: Color(0xFF0F172A),
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
+          const SizedBox(height: 16),
 
-          SizedBox(height: 16),
+          // MOVIES GRID
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: movies.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 20,
+                childAspectRatio: 0.6,
+              ),
+              itemBuilder: (context, index) {
+                final movie = movies[index];
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MovieDetailsPage(
+                          title: movie["title"],
+                          rating: (movie["rating"] as num).toDouble(),
+                          poster: movie["poster"],
+                          genre: movie["genre"],
+                          duration: movie["duration"],
+                          status: movie["status"],
+                          actors: movie["actors"] != null
+                              ? List<Map<String, String>>.from(movie["actors"])
+                              : null,
+                        ),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 6,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: ClipRRect(
+                            borderRadius: const BorderRadius.vertical(
+                                top: Radius.circular(16)),
+                            child: Image.asset(
+                              movie["poster"],
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                movie["title"],
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF0F172A),
+                                ),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              const SizedBox(height: 4),
+                              Row(
+                                children: [
+                                  Text(
+                                    movie["rating"].toString(),
+                                    style: TextStyle(color: Colors.grey[800]),
+                                  ),
+                                  const SizedBox(width: 4),
+                                  const Icon(Icons.star,
+                                      color: Color(0xFFFFD700), size: 16),
+                                ],
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+          const SizedBox(height: 30),
 
-          // Horizontal card movie
+          // RECOMMENDATIONS
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
+              "Recommendations",
+              style: TextStyle(
+                color: Color(0xFF0F172A),
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
           SizedBox(
             height: 300,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
-              padding: EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               itemCount: recommendations.length,
-              separatorBuilder: (context, index) => SizedBox(width: 16),
+              separatorBuilder: (context, index) => const SizedBox(width: 16),
               itemBuilder: (context, index) {
                 final movie = recommendations[index];
                 return GestureDetector(
@@ -375,46 +255,70 @@ class _HomePageState extends State<HomePage> {
                           rating: (movie["rating"] as num).toDouble(),
                           poster: movie["poster"],
                           genre: movie["genre"],
+                          duration: movie["duration"],
+                          status: movie["status"],
+                          actors: movie["actors"] != null
+                              ? List<Map<String, String>>.from(movie["actors"])
+                              : null,
                         ),
                       ),
                     );
                   },
-                  child: SizedBox(
+                  child: Container(
                     width: 135,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(14),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 6,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: const BorderRadius.vertical(
+                              top: Radius.circular(14)),
                           child: Image.asset(
                             movie["poster"],
-                            height: 220,
-                            width: 130,
+                            height: 210,
+                            width: 135,
                             fit: BoxFit.cover,
                           ),
                         ),
-                        SizedBox(height: 8),
-                        Text(
-                          movie["title"],
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        SizedBox(height: 4),
-                        Row(
-                          children: [
-                            Text(
-                              movie["rating"] % 1 == 0
-                                  ? movie["rating"].toInt().toString()
-                                  : movie["rating"].toString(),
-                              style: TextStyle(color: Color(0xFFFFC700)),
-                            ),
-                            SizedBox(width: 4),
-                            Icon(Icons.star,
-                                color: Color(0xFFFFC700), size: 16),
-                          ],
-                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                movie["title"],
+                                style: const TextStyle(
+                                  color: Color(0xFF0F172A),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              const SizedBox(height: 4),
+                              Row(
+                                children: [
+                                  Text(
+                                    movie["rating"].toString(),
+                                    style: TextStyle(color: Colors.grey[800]),
+                                  ),
+                                  const SizedBox(width: 4),
+                                  const Icon(Icons.star,
+                                      color: Color(0xFFFFD700), size: 16),
+                                ],
+                              )
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -422,6 +326,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
+          const SizedBox(height: 24),
         ],
       ),
     );

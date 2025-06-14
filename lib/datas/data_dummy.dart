@@ -1,0 +1,126 @@
+List<Map<String, dynamic>> banners = [
+  {
+    "title": "Gundala",
+    "rating": 5,
+    "poster": "assets/images/BannerGundala.jpg",
+    "genre": "Action, Drama",
+    "duration": "2hr 3 min",
+    "status": "XXI, Cinepolis",
+    "actors": [
+      {
+        "name": "Abimana Arya",
+        "photo": "assets/images/actors/AbimanaAryasatya.jpg"
+      },
+      {"name": "Ario Bayu", "photo": "assets/images/actors/Ario Bayu.jpg"},
+      {
+        "name": "Bront Palarae",
+        "photo": "assets/images/actors/Bront Palarae.jpg"
+      },
+      {"name": "Tara Basro", "photo": "assets/images/actors/tarabasro.jpg"},
+    ]
+  },
+  {
+    "title": "Malam Pencabut Nyawa",
+    "rating": 3.5,
+    "poster": "assets/images/BannerMalam.jpg",
+    "genre": "Horor"
+  },
+  {
+    "title": "Mencuri Raden Saleh",
+    "rating": 5,
+    "poster": "assets/images/BannerMencuri.jpg",
+    "genre": "Action, Drama"
+  },
+];
+
+List<Map<String, dynamic>> movies = [
+  {
+    "title": "Sumala",
+    "rating": 4,
+    "poster": "assets/images/Sumala.jpg",
+    "genre": "Horor",
+    "duration": "1hr 25 min",
+    "status": "XXI, Cinepolis",
+    "actors": [
+      {"name": "Achmad Megantara", "photo": "assets/images/actors/achmad.jpg"},
+      {"name": "Luna Maya", "photo": "assets/images/actors/luna.jpg"},
+      {"name": "Sally Marcelina", "photo": "assets/images/actors/sally.jpg"},
+      {"name": "Tio Pakusadewo", "photo": "assets/images/actors/tio.jpg"},
+    ]
+  },
+  {
+    "title": "Komang",
+    "rating": 4,
+    "poster": "assets/images/Komang.jpg",
+    "genre": "Romance",
+    "duration": "1hr 47 min",
+    "status": "XXI, Cinepolis",
+    "actors": [
+      {"name": "Aurora Ribero", "photo": "assets/images/actors/aurora.jpg"},
+      {"name": "Kiesha Alvaro ", "photo": "assets/images/actors/alvaro.jpg"},
+      {"name": "Cut Mini Theo", "photo": "assets/images/actors/cutmini.jpg"},
+      {"name": "Ayu Laksmi", "photo": "assets/images/actors/laksmi.jpg"},
+    ]
+  },
+  {
+    "title": "Yowis Ben",
+    "rating": 2.5,
+    "poster": "assets/images/YowisBen.jpg",
+    "genre": "Comedy, Romance"
+  },
+  {
+    "title": "Perayaan Mati Rasa",
+    "rating": 3,
+    "poster": "assets/images/Perayaan.jpg",
+    "genre": "Drama, Action",
+    "duration": "1hr 2 min",
+    "status": "XXI, Cinepolis, Imax",
+    "actors": [
+      {"name": "Iqbaal Ramadhan", "photo": "assets/images/actors/iqbaal.jpg"},
+      {"name": "Umay Shahab", "photo": "assets/images/actors/umay.jpg"},
+      {"name": "Devano Danendra", "photo": "assets/images/actors/devano.jpg"},
+      {"name": "Dul Jaelani", "photo": "assets/images/actors/dul.jpg"},
+    ]
+  },
+  {
+    "title": "Warkop DKI Kartun",
+    "rating": 5,
+    "poster": "assets/images/DkiKartun.jpg",
+    "genre": "Comedy",
+    "duration": "1hr 2 min",
+    "status": "XXI, Cinepolis, Imax",
+    "actors": [
+      {"name": "Iqbaal Ramadhan", "photo": "assets/images/actors/iqbaal.jpg"},
+      {"name": "Umay Shahab", "photo": "assets/images/actors/umay.jpg"},
+      {"name": "Devano Danendra", "photo": "assets/images/actors/devano.jpg"},
+      {"name": "Dul Jaelani", "photo": "assets/images/actors/dul.jpg"},
+    ]
+  },
+  {
+    "title": "Tinggal Meninggal",
+    "rating": 4.5,
+    "poster": "assets/images/TinggalMeninggal.jpg",
+    "genre": "Comedy, Drama"
+  }
+];
+
+List<Map<String, dynamic>> recommendations = [
+  {
+    "title": "Agak Laen",
+    "rating": 4,
+    "poster": "assets/images/RcdAgakLaen.jpg",
+    "genre": "Comedy"
+  },
+  {
+    "title": "Anak Kolong",
+    "rating": 4.5,
+    "poster": "assets/images/RcdAnakKolong.jpg",
+    "genre": "Drama, Romance"
+  },
+  {
+    "title": "Love Therapy",
+    "rating": 5,
+    "poster": "assets/images/RcdTherapy.jpg",
+    "genre": "Drama, Romance"
+  },
+];

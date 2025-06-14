@@ -29,15 +29,16 @@ class _BottomNavState extends State<BottomNav> {
       bottomNavigationBar: CurvedNavigationBar(
         index: _selectedIndex,
         backgroundColor: Colors.transparent,
-        color: Colors.grey[900]!,
+        buttonBackgroundColor: Color(0xFF00425A),
+        color: Colors.blueGrey.shade100,
         animationDuration: Duration(milliseconds: 300),
         items: [
           Icon(Icons.home,
-              color: _selectedIndex == 0 ? Color(0xFFFFC700) : Colors.white),
+              color: _selectedIndex == 0 ? Colors.white : Color(0xFF00425A)),
           Icon(Icons.search,
-              color: _selectedIndex == 1 ? Color(0xFFFFC700) : Colors.white),
+              color: _selectedIndex == 1 ? Colors.white : Color(0xFF00425A)),
           Icon(Icons.person,
-              color: _selectedIndex == 2 ? Color(0xFFFFC700) : Colors.white),
+              color: _selectedIndex == 2 ? Colors.white : Color(0xFF00425A)),
         ],
         onTap: (index) {
           setState(() {
