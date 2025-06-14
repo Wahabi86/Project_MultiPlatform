@@ -14,23 +14,29 @@ List<Map<String, dynamic>> banners = [
   },
   {
     "title": "Malam Pencabut Nyawa",
-    "rating": 3.5,
     "poster": "assets/images/BannerMalam.jpg",
     "genre": "Horor",
     "duration": "-",
     "status": "Cooming Soon",
     "actors": [
-      {"name": "Abimana Arya", "photo": "assets/images/actors/abimana.jpg"},
-      {"name": "Ario Bayu", "photo": "assets/images/actors/ario.jpg"},
-      {"name": "Bront Palarae", "photo": "assets/images/actors/bront.jpg"},
-      {"name": "Tara Basro", "photo": "assets/images/actors/tara.jpg"},
+      {"name": "Devano Danendra", "photo": "assets/images/actors/ddevano.jpg"},
+      {"name": "Keisya Levronka", "photo": "assets/images/actors/keisya.jpg"},
+      {"name": "Mikha Hernan ", "photo": "assets/images/actors/hernan.jpg"},
+      {"name": "Fajar Nugra", "photo": "assets/images/actors/fajar.jpg"},
     ]
   },
   {
     "title": "Mencuri Raden Saleh",
-    "rating": 5,
     "poster": "assets/images/BannerMencuri.jpg",
-    "genre": "Action, Drama"
+    "genre": "Action, Drama",
+    "duration": "-",
+    "status": "Cooming Soon",
+    "actors": [
+      {"name": "Iqbaal Ramadhan", "photo": "assets/images/actors/iqbaal.jpg"},
+      {"name": "Angga Yunanda", "photo": "assets/images/actors/angga.jpg"},
+      {"name": "Rachel Amanda", "photo": "assets/images/actors/rachel.jpg"},
+      {"name": "Aghniny Haque", "photo": "assets/images/actors/haque.jpg"},
+    ]
   },
 ];
 
@@ -96,8 +102,8 @@ List<Map<String, dynamic>> movies = [
     "rating": 5,
     "poster": "assets/images/DkiKartun.jpg",
     "genre": "Comedy",
-    "duration": "-",
-    "status": "Cooming Soon",
+    "duration": "1hr 22min",
+    "status": "XXI,Cinepolis",
     "actors": [
       {"name": "Indro Warkop", "photo": "assets/images/actors/indro.jpg"},
       {"name": "Aliando Syarief", "photo": "assets/images/actors/aliando.jpg"},
@@ -110,8 +116,8 @@ List<Map<String, dynamic>> movies = [
     "rating": 4.5,
     "poster": "assets/images/TinggalMeninggal.jpg",
     "genre": "Comedy, Drama",
-    "duration": "-",
-    "status": "Cooming Soon",
+    "duration": "1hr 37min",
+    "status": "XXI,NETFLIX",
     "actors": [
       {"name": "Omara Esteghlal", "photo": "assets/images/actors/omara.jpg"},
       {"name": "Mawar de Jongh", "photo": "assets/images/actors/mawar.jpg"},
