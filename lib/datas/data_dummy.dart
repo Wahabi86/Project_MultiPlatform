@@ -176,4 +176,18 @@ List<Map<String, dynamic>> recommendations = [
       {"name": "Baim D Bill", "photo": "assets/images/actors/baim.jpg"},
     ]
   },
+  {
+    "title": "Sekawan Limo",
+    "rating": 4,
+    "poster": "assets/images/sekawann.jpg",
+    "genre": "Action, Horror, Comedy",
+    "duration": "1hr 52min",
+    "status": "XXI, Cinepolis, NETFLIX",
+    "actors": [
+      {"name": "Bayu Skak", "photo": "assets/images/actors/skak.jpg"},
+      {"name": "Keisya Levronka", "photo": "assets/images/actors/keisya.jpg"},
+      {"name": "Dono Pradana", "photo": "assets/images/actors/dono.jpg"},
+      {"name": "Nadya Arina", "photo": "assets/images/actors/nadya.jpg"},
+    ]
+  }
 ];
