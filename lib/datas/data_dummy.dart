@@ -3,7 +3,6 @@ List<Map<String, dynamic>> banners = [
     "title": "Gundala",
     "poster": "assets/images/BannerGundala.jpg",
     "genre": "Action, Drama",
-    "duration": "-",
     "status": "Cooming Soon",
     "actors": [
       {"name": "Abimana Arya", "photo": "assets/images/actors/abimana.jpg"},
@@ -16,7 +15,6 @@ List<Map<String, dynamic>> banners = [
     "title": "Malam Pencabut Nyawa",
     "poster": "assets/images/BannerMalam.jpg",
     "genre": "Horor",
-    "duration": "-",
     "status": "Cooming Soon",
     "actors": [
       {"name": "Devano Danendra", "photo": "assets/images/actors/ddevano.jpg"},
@@ -29,7 +27,6 @@ List<Map<String, dynamic>> banners = [
     "title": "Mencuri Raden Saleh",
     "poster": "assets/images/BannerMencuri.jpg",
     "genre": "Action, Drama",
-    "duration": "-",
     "status": "Cooming Soon",
     "actors": [
       {"name": "Iqbaal Ramadhan", "photo": "assets/images/actors/iqbaal.jpg"},
@@ -45,7 +42,7 @@ List<Map<String, dynamic>> movies = [
     "title": "Sumala",
     "rating": 4,
     "poster": "assets/images/Sumala.jpg",
-    "genre": "Horor",
+    "genre": "Horror",
     "duration": "1hr 25 min",
     "status": "XXI, Cinepolis",
     "actors": [
