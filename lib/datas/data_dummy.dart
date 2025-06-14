@@ -1,26 +1,31 @@
 List<Map<String, dynamic>> banners = [
   {
     "title": "Gundala",
-    "rating": 5,
+    "rating": 4.5,
     "poster": "assets/images/BannerGundala.jpg",
     "genre": "Action, Drama",
-    "duration": "2hr 3 min",
-    "status": "XXI, Cinepolis",
+    "duration": "-",
+    "status": "Cooming Soon",
     "actors": [
       {"name": "Abimana Arya", "photo": "assets/images/actors/abimana.jpg"},
-      {"name": "Ario Bayu", "photo": "assets/images/actors/Ario Bayu.jpg"},
-      {
-        "name": "Bront Palarae",
-        "photo": "assets/images/actors/Bront Palarae.jpg"
-      },
-      {"name": "Tara Basro", "photo": "assets/images/actors/tarabasro.jpg"},
+      {"name": "Ario Bayu", "photo": "assets/images/actors/ario.jpg"},
+      {"name": "Bront Palarae", "photo": "assets/images/actors/bront.jpg"},
+      {"name": "Tara Basro", "photo": "assets/images/actors/tara.jpg"},
     ]
   },
   {
     "title": "Malam Pencabut Nyawa",
     "rating": 3.5,
     "poster": "assets/images/BannerMalam.jpg",
-    "genre": "Horor"
+    "genre": "Horor",
+    "duration": "-",
+    "status": "Cooming Soon",
+    "actors": [
+      {"name": "Abimana Arya", "photo": "assets/images/actors/abimana.jpg"},
+      {"name": "Ario Bayu", "photo": "assets/images/actors/ario.jpg"},
+      {"name": "Bront Palarae", "photo": "assets/images/actors/bront.jpg"},
+      {"name": "Tara Basro", "photo": "assets/images/actors/tara.jpg"},
+    ]
   },
   {
     "title": "Mencuri Raden Saleh",
@@ -139,12 +144,34 @@ List<Map<String, dynamic>> recommendations = [
     "title": "Anak Kolong",
     "rating": 4.5,
     "poster": "assets/images/RcdAnakKolong.jpg",
-    "genre": "Drama, Romance"
+    "genre": "Drama, Romance",
+    "duration": "1hr 43min",
+    "status": "XXI, Cinepolis, CGV",
+    "actors": [
+      {"name": "Junior Roberts", "photo": "assets/images/actors/junior.jpg"},
+      {"name": "Aisyah Aqilah", "photo": "assets/images/actors/aisyah.jpg"},
+      {
+        "name": "Antonio Blanco Jr",
+        "photo": "assets/images/actors/antonio.jpg"
+      },
+      {"name": "William Roberts", "photo": "assets/images/actors/wiliam.jpg"},
+    ]
   },
   {
     "title": "Love Therapy",
     "rating": 5,
     "poster": "assets/images/RcdTherapy.jpg",
-    "genre": "Drama, Romance"
+    "genre": "Drama, Romance",
+    "duration": "1hr 37min",
+    "status": "Amazon Prime Video, Prime",
+    "actors": [
+      {"name": "Fachry Albar ", "photo": "assets/images/actors/albar.jpg"},
+      {"name": "Wulan Guritno", "photo": "assets/images/actors/wulan.jpg"},
+      {
+        "name": "Adinda Cresheilla ",
+        "photo": "assets/images/actors/adinda.jpg"
+      },
+      {"name": "Baim D Bill", "photo": "assets/images/actors/baim.jpg"},
+    ]
   },
 ];
