@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(
                       builder: (context) => MovieDetailsPage(
                         title: banner["title"],
-                        rating: (banner["rating"] as num).toDouble(),
+                        // rating: 0.0,
                         poster: banner["poster"],
                         genre: banner["genre"],
                         duration: banner["duration"],
