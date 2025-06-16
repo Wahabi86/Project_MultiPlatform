@@ -1,7 +1,14 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
 class SearchWidget extends StatelessWidget {
-  const SearchWidget({super.key});
+  final TextEditingController controller;
+  final Function(String) onSubmitted;
+
+  const SearchWidget({
+    super.key,
+    required this.controller,
+    required this.onSubmitted,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,44 +18,34 @@ class SearchWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: 16.0,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
             width: MediaQuery.of(context).size.width * .9,
             height: 70,
             decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 238, 237, 237),
-                borderRadius: BorderRadius.circular(10)),
+              color: const Color.fromARGB(255, 238, 237, 237),
+              borderRadius: BorderRadius.circular(10),
+            ),
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.search,
-                  color: Colors.grey,
-                  size: 30,
-                ),
+                Icon(Icons.search, color: Colors.black, size: 30),
                 SizedBox(width: 8),
                 Expanded(
                   child: TextField(
-                    cursorColor: Colors.grey,
+                    controller: controller,
+                    cursorColor: Colors.black,
                     style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       hintText: "Search",
                       hintStyle: TextStyle(fontSize: 18, color: Colors.grey),
                       border: InputBorder.none,
-                      focusedBorder: InputBorder.none,
                     ),
+                    onSubmitted: onSubmitted,
                   ),
                 ),
-                Icon(
-                  Icons.mic,
-                  color: Colors.grey,
-                  size: 30,
-                ),
+                Icon(Icons.mic, color: Colors.black, size: 30),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
