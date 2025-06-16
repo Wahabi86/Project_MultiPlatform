@@ -3,7 +3,7 @@ List<Map<String, dynamic>> banners = [
     "title": "Gundala",
     "poster": "assets/images/BannerGundala.jpg",
     "genre": "Action, Drama",
-    "status": "Cooming Soon",
+    "status": "Coming Soon",
     "synopsis":
         "Sancaka, seorang anak yatim yang tumbuh di jalanan setelah ditinggal kedua orang tuanya. Hidup keras membentuknya menjadi pribadi yang tertutup dan tak peduli pada keadaan sekitar. Namun, ketika kekacauan dan ketidakadilan merajalela di kotanya, Sancaka tersambar petir dan mendapatkan kekuatan luar biasa yang membuatnya mampu mengendalikan listrik. Dengan identitas baru sebagai Gundala, ia bangkit menjadi pahlawan yang melawan kejahatan, terutama tokoh jahat bernama Pengkor yang berusaha mengacaukan negeri dengan rencana beracun. Perjalanan Sancaka bukan hanya tentang kekuatan, tapi juga perjuangan moral untuk peduli dan melindungi sesama.",
     "actors": [

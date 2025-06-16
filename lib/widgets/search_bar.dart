@@ -17,7 +17,7 @@ class SearchWidget extends StatelessWidget {
             width: MediaQuery.of(context).size.width * .9,
             height: 70,
             decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 238, 237, 237),
+                color: Color(0xFF2B2B2B),
                 borderRadius: BorderRadius.circular(10)),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -25,14 +25,14 @@ class SearchWidget extends StatelessWidget {
               children: [
                 Icon(
                   Icons.search,
-                  color: Colors.black,
+                  color: Colors.white,
                   size: 30,
                 ),
                 SizedBox(width: 8),
                 Expanded(
                   child: TextField(
-                    cursorColor: Colors.grey,
-                    style: TextStyle(color: Colors.black),
+                    cursorColor: Colors.white,
+                    style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       hintText: "Search",
                       hintStyle: TextStyle(fontSize: 18, color: Colors.grey),
@@ -43,7 +43,7 @@ class SearchWidget extends StatelessWidget {
                 ),
                 Icon(
                   Icons.mic,
-                  color: Colors.black,
+                  color: Colors.white,
                   size: 30,
                 ),
               ],

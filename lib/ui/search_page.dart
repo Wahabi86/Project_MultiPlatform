@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import '../widgets/search_bar.dart';
+import "package:project_uts/widgets/search_bar.dart";
 
 class SearchPage extends StatelessWidget {
   final List<Map<String, dynamic>> searchResults = [
@@ -23,7 +23,6 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -35,10 +34,9 @@ class SearchPage extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Text(
                 "Search results (${searchResults.length})",
-                style: const TextStyle(color: Colors.black87),
+                style: TextStyle(color: Colors.white70),
               ),
             ),
-            const SizedBox(height: 16),
             Expanded(
                 child: ListView.builder(
               itemCount: searchResults.length,
@@ -50,20 +48,9 @@ class SearchPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          width: 130,
-                          height: 180,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.shade300,
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(color: Colors.grey.shade300),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.2),
-                                  spreadRadius: 2,
-                                  blurRadius: 5,
-                                  offset: const Offset(0, 3),
-                                )
-                              ]),
+                          width: 100,
+                          height: 140,
+                          color: Colors.grey[700],
                         ),
                         SizedBox(width: 16),
                         Expanded(
@@ -72,8 +59,8 @@ class SearchPage extends StatelessWidget {
                           children: [
                             Text(
                               movie["title"],
-                              style: const TextStyle(
-                                color: Colors.black87,
+                              style: TextStyle(
+                                color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
                               ),
@@ -95,14 +82,14 @@ class SearchPage extends StatelessWidget {
                             ),
                             Text(
                               movie["genres"],
-                              style: const TextStyle(color: Colors.black54),
+                              style: TextStyle(color: Colors.white70),
                             ),
                             SizedBox(
                               height: 4,
                             ),
                             Text(
                               movie["description"],
-                              style: const TextStyle(color: Colors.black45),
+                              style: TextStyle(color: Colors.white54),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             )
