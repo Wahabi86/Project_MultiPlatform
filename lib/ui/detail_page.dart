@@ -10,6 +10,7 @@ class MovieDetailsPage extends StatelessWidget {
   final List<Map<String, String>>? actors;
   final String? status;
   final String? duration;
+  final String? synopsis;
 
   const MovieDetailsPage({
     super.key,
@@ -20,6 +21,7 @@ class MovieDetailsPage extends StatelessWidget {
     this.actors,
     this.status,
     this.duration,
+    this.synopsis,
   });
 
   @override
@@ -193,13 +195,8 @@ class MovieDetailsPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 8),
-                    Text(
-                      "Deskripsi cerita disesuaikan dengan data film masing-masing...",
-                      style: TextStyle(
-                        color: Colors.grey.shade700,
-                        fontSize: 16,
-                        height: 1.4,
-                      ),
+                    ExpandableSynopsis(
+                      text: synopsis ?? "Synopsis tidak tersedia.",
                     ),
 
                     // Status
@@ -270,5 +267,55 @@ class MovieDetailsPage extends StatelessWidget {
     } else {
       throw 'Could not launch $url';
     }
+  }
+}
+
+// Widget untuk ringkas/expand sinopsis
+class ExpandableSynopsis extends StatefulWidget {
+  final String text;
+
+  const ExpandableSynopsis({super.key, required this.text});
+
+  @override
+  State<ExpandableSynopsis> createState() => _ExpandableSynopsisState();
+}
+
+class _ExpandableSynopsisState extends State<ExpandableSynopsis> {
+  bool isExpanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final sentences = widget.text.split(RegExp(r'(?<=[.!?])\s+'));
+    final shortText = sentences.take(2).join(' ');
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          isExpanded ? widget.text : shortText,
+          style: TextStyle(
+            color: Colors.grey.shade700,
+            fontSize: 16,
+            height: 1.4,
+          ),
+        ),
+        const SizedBox(height: 8),
+        if (sentences.length > 3)
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                isExpanded = !isExpanded;
+              });
+            },
+            child: Text(
+              isExpanded ? 'Show Less' : 'Show All',
+              style: const TextStyle(
+                color: Colors.blue,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+      ],
+    );
   }
 }
