@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
     "Romance"
   ];
 
-  // Filter movies based on selected genre
+  // FILTER MOVIE PER GENRE
   List<Map<String, dynamic>> get filteredMovies {
     if (selectedGenre == "All") {
       return movies;
@@ -33,9 +33,116 @@ class _HomePageState extends State<HomePage> {
     }).toList();
   }
 
+  // ISI DARI MOVIE CARD KETIKA DI CLICK
+  Widget _buildMovieCard(Map<String, dynamic> movie, double width) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MovieDetailsPage(
+              title: movie["title"] ?? "Unknown Title",
+              rating: movie["rating"] != null
+                  ? (movie["rating"] as num).toDouble()
+                  : 0.0,
+              poster: movie["poster"] ?? "",
+              genre: movie["genre"] ?? "Unknown Genre",
+              duration: movie["duration"] ?? "Unknown Duration",
+              status: movie["status"] ?? "Unknown Status",
+              synopsis: movie["synopsis"],
+              actors: movie["actors"] != null
+                  ? List<Map<String, String>>.from(movie["actors"])
+                  : null,
+            ),
+          ),
+        );
+      },
+      // STYLING CARD
+      child: Container(
+        width: width,
+        margin: const EdgeInsets.only(bottom: 10), // Tambah margin untuk shadow
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 8,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        // MENAMPILKAN POSTER
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: ClipRRect(
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(16)),
+                child: Image.asset(
+                  movie["poster"] ?? "",
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      color: Colors.grey[300],
+                      child: const Center(
+                        child: Icon(
+                          Icons.broken_image,
+                          color: Colors.grey,
+                          size: 40,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+            // STYLING DALAM CARD MOVIE
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    movie["title"] ?? "Unknown Title",
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF0F172A),
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 4),
+                  Row(
+                    children: [
+                      Text(
+                        movie["rating"]?.toString() ?? "0.0",
+                        style: TextStyle(color: Colors.grey[800]),
+                      ),
+                      const SizedBox(width: 4),
+                      const Icon(Icons.star,
+                          color: Color(0xFFFFD700), size: 16),
+                    ],
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    // UNTUK MENGHITUNG LEBAR UI AGAR TAMPILAN CARD
+    final screenWidth = MediaQuery.of(context).size.width;
+    final cardWidth = (screenWidth - 44) / 2;
+
     return Scaffold(
+      // APP BAR
       backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -90,7 +197,6 @@ class _HomePageState extends State<HomePage> {
                         title: banner["title"] ?? "Unknown Title",
                         poster: banner["poster"] ?? "",
                         genre: banner["genre"] ?? "Unknown Genre",
-                        duration: banner["duration"] ?? "Unknown Duration",
                         status: banner["status"] ?? "Unknown Status",
                         actors: banner["actors"] != null
                             ? List<Map<String, String>>.from(banner["actors"])
@@ -161,7 +267,7 @@ class _HomePageState extends State<HomePage> {
           ),
           const SizedBox(height: 16),
 
-          // MOVIES GRID
+          // MOVIES GRID FILTER
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: filteredMovies.isEmpty
@@ -188,6 +294,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   )
+
+                // UNTUK TAMPILAN BERAPA CARD MOVIE YANG MUNCUL
                 : GridView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -201,101 +309,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     itemBuilder: (context, index) {
                       final movie = filteredMovies[index];
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => MovieDetailsPage(
-                                title: movie["title"] ?? "Unknown Title",
-                                rating: movie["rating"] != null
-                                    ? (movie["rating"] as num).toDouble()
-                                    : 0.0,
-                                poster: movie["poster"] ?? "",
-                                genre: movie["genre"] ?? "Unknown Genre",
-                                duration:
-                                    movie["duration"] ?? "Unknown Duration",
-                                status: movie["status"] ?? "Unknown Status",
-                                actors: movie["actors"] != null
-                                    ? List<Map<String, String>>.from(
-                                        movie["actors"])
-                                    : null,
-                              ),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.08),
-                                blurRadius: 8,
-                                offset: const Offset(0, 4),
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                child: ClipRRect(
-                                  borderRadius: const BorderRadius.vertical(
-                                      top: Radius.circular(16)),
-                                  child: Image.asset(
-                                    movie["poster"] ?? "",
-                                    fit: BoxFit.cover,
-                                    width: double.infinity,
-                                    errorBuilder: (context, error, stackTrace) {
-                                      return Container(
-                                        color: Colors.grey[300],
-                                        child: const Center(
-                                          child: Icon(
-                                            Icons.broken_image,
-                                            color: Colors.grey,
-                                            size: 40,
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      movie["title"] ?? "Unknown Title",
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xFF0F172A),
-                                      ),
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          movie["rating"]?.toString() ?? "0.0",
-                                          style: TextStyle(
-                                              color: Colors.grey[800]),
-                                        ),
-                                        const SizedBox(width: 4),
-                                        const Icon(Icons.star,
-                                            color: Color(0xFFFFD700), size: 16),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      );
+                      return _buildMovieCard(movie, double.infinity);
                     },
                   ),
           ),
@@ -314,8 +328,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const SizedBox(height: 16),
+
+          // CARD MOVIE RECOMMENDATIONS
           SizedBox(
-            height: 300,
+            height: (cardWidth / 0.6) +
+                20, // Tambah 20 untuk space shadow dan margin
             child: recommendations.isEmpty
                 ? Center(
                     child: Text(
@@ -331,106 +348,10 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     itemCount: recommendations.length,
                     separatorBuilder: (context, index) =>
-                        const SizedBox(width: 16),
+                        const SizedBox(width: 20),
                     itemBuilder: (context, index) {
                       final movie = recommendations[index];
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => MovieDetailsPage(
-                                title: movie["title"] ?? "Unknown Title",
-                                rating: movie["rating"] != null
-                                    ? (movie["rating"] as num).toDouble()
-                                    : 0.0,
-                                poster: movie["poster"] ?? "",
-                                genre: movie["genre"] ?? "Unknown Genre",
-                                duration:
-                                    movie["duration"] ?? "Unknown Duration",
-                                status: movie["status"] ?? "Unknown Status",
-                                actors: movie["actors"] != null
-                                    ? List<Map<String, String>>.from(
-                                        movie["actors"])
-                                    : null,
-                              ),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          width: 135,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(14),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.08),
-                                blurRadius: 8,
-                                offset: const Offset(0, 4),
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              ClipRRect(
-                                borderRadius: const BorderRadius.vertical(
-                                    top: Radius.circular(14)),
-                                child: Image.asset(
-                                  movie["poster"] ?? "",
-                                  height: 210,
-                                  width: 135,
-                                  fit: BoxFit.cover,
-                                  errorBuilder: (context, error, stackTrace) {
-                                    return Container(
-                                      height: 210,
-                                      width: 135,
-                                      color: Colors.grey[300],
-                                      child: const Center(
-                                        child: Icon(
-                                          Icons.broken_image,
-                                          color: Colors.grey,
-                                          size: 40,
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      movie["title"] ?? "Unknown Title",
-                                      style: const TextStyle(
-                                        color: Color(0xFF0F172A),
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          movie["rating"]?.toString() ?? "0.0",
-                                          style: TextStyle(
-                                              color: Colors.grey[800]),
-                                        ),
-                                        const SizedBox(width: 4),
-                                        const Icon(Icons.star,
-                                            color: Color(0xFFFFD700), size: 16),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      );
+                      return _buildMovieCard(movie, cardWidth);
                     },
                   ),
           ),
