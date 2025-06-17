@@ -68,6 +68,7 @@ class _HomePageState extends State<HomePage> {
           ),
         );
       },
+
       // STYLING CARD
       child: Container(
         width: width,
@@ -83,6 +84,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
+
         // MENAMPILKAN POSTER
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,6 +112,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            
             // STYLING DALAM CARD MOVIE
             Padding(
               padding: const EdgeInsets.all(8),

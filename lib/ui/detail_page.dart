@@ -127,9 +127,9 @@ class MovieDetailsPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20),
-                      Divider(color: Colors.grey.shade300, thickness: 1),
+                      const SizedBox(height: 10),
                     ],
+                    Divider(color: Colors.grey.shade300, thickness: 1),
 
                     // Actors
                     if (actors != null && actors!.isNotEmpty) ...[
@@ -226,7 +226,6 @@ class MovieDetailsPage extends StatelessWidget {
                             case "netflix":
                               url = "https://www.netflix.com/";
                               break;
-                            case "prime video":
                             case "amazon prime":
                               url = "https://www.primevideo.com/";
                               break;
