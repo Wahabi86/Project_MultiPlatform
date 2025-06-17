@@ -45,6 +45,17 @@ class _SearchPageState extends State<SearchPage> {
     });
   }
 
+  // Format views seperti 1.2K atau 3.1M
+  String formatViews(int count) {
+    if (count >= 1000000) {
+      return '${(count / 1000000).toStringAsFixed(1)}M';
+    } else if (count >= 1000) {
+      return '${(count / 1000).toStringAsFixed(1)}K';
+    } else {
+      return count.toString();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,6 +109,7 @@ class _SearchPageState extends State<SearchPage> {
                       itemBuilder: (context, index) {
                         final movie = filteredResults[index];
                         final rating = movie["rating"];
+                        final views = movie["views"] ?? 0;
 
                         return GestureDetector(
                           onTap: () {
@@ -167,9 +179,9 @@ class _SearchPageState extends State<SearchPage> {
                                         ),
                                       ),
                                       const SizedBox(height: 4),
-                                      if (rating != null)
-                                        Row(
-                                          children: [
+                                      Row(
+                                        children: [
+                                          if (rating != null) ...[
                                             Text(
                                               rating % 1 == 0
                                                   ? rating.toInt().toString()
@@ -200,8 +212,20 @@ class _SearchPageState extends State<SearchPage> {
                                                 }
                                               }),
                                             ),
+                                            const SizedBox(width: 8),
                                           ],
-                                        ),
+                                          Icon(Icons.remove_red_eye,
+                                              size: 18, color: Colors.grey),
+                                          const SizedBox(width: 4),
+                                          Text(
+                                            formatViews(views),
+                                            style: const TextStyle(
+                                              color: Colors.grey,
+                                              fontSize: 13,
+                                            ),
+                                          )
+                                        ],
+                                      ),
                                       const SizedBox(height: 4),
                                       Text(
                                         movie["genre"],
