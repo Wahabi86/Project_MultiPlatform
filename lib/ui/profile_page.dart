@@ -13,7 +13,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   File? _image;
   final picker = ImagePicker();
-  String username = "Cinephile";
+  String username = "I Ketut Manday";
   String bio = "Menjelajahi dunia sinematik, satu film pada satu waktu.";
 
   Future<void> _pickImage(ImageSource source) async {

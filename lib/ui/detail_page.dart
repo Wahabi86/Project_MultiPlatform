@@ -211,6 +211,7 @@ class MovieDetailsPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 12),
+                      // LINK URL BROADCAST
                       Wrap(
                         spacing: 10,
                         runSpacing: 10,
@@ -259,7 +260,7 @@ class MovieDetailsPage extends StatelessWidget {
       ),
     );
   }
-
+  
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {

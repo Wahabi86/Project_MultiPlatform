@@ -12,20 +12,26 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   final TextEditingController searchController = TextEditingController();
+  // MENAMPUNG HASIL PENCARIAN DATA MOVIE
   List<Map<String, dynamic>> filteredResults = [];
 
+// MENGAMBIL SEMUA DATA DUMMY
   List<Map<String, dynamic>> getAllUniqueMovies() {
     final allMovies = [...banners, ...movies, ...recommendations];
     final seenTitles = <String>{};
 
-    return allMovies.where((movie) {
+// UNTUK MENGHILANGKAN DUPLIKASI TITLE JIKA ADA
+    final uniqueList = allMovies.where((movie) {
       final title = movie['title'] ?? '';
       if (seenTitles.contains(title)) return false;
       seenTitles.add(title);
       return true;
     }).toList();
+
+    return uniqueList;
   }
 
+// MELAKUKAN SEARCH BERDASARKAN TITLE DAN MENYESUAIKAN INPUT DARI USER
   void performSearch(String keyword) {
     final allMovies = getAllUniqueMovies();
     final results = allMovies.where((movie) {
@@ -39,33 +45,12 @@ class _SearchPageState extends State<SearchPage> {
     });
   }
 
-  Widget buildRatingStars(double rating) {
-    int fullStars = rating.floor();
-    bool hasHalfStar = rating - fullStars >= 0.5;
-    List<Widget> stars = [];
-
-    for (int i = 0; i < 5; i++) {
-      if (i < fullStars) {
-        stars.add(const Icon(Icons.star, color: Color(0xFFFFD700), size: 18));
-      } else if (i == fullStars && hasHalfStar) {
-        stars.add(
-            const Icon(Icons.star_half, color: Color(0xFFFFD700), size: 18));
-      } else {
-        stars.add(
-            const Icon(Icons.star_border, color: Color(0xFFFFD700), size: 18));
-      }
-    }
-
-    return Row(children: stars);
-  }
-
   @override
   Widget build(BuildContext context) {
-    final resultsCount = filteredResults.length;
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
+        // SEARCH BAR
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
@@ -75,16 +60,19 @@ class _SearchPageState extends State<SearchPage> {
               onSubmitted: performSearch,
             ),
             const SizedBox(height: 20),
+
+            //TEXT SEARCH RESULTS
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Search results ($resultsCount)",
+                "Search results (${filteredResults.length})",
                 style: const TextStyle(color: Colors.black87),
               ),
             ),
             const SizedBox(height: 16),
             Expanded(
-              child: resultsCount == 0
+              // ICON DAN TEXT SAAT MOVIE TIDAK ADA
+              child: filteredResults.isEmpty
                   ? Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -93,22 +81,23 @@ class _SearchPageState extends State<SearchPage> {
                               color: Colors.grey, size: 48),
                           SizedBox(height: 12),
                           Text(
-                            "Film Not Available",
-                            style:
-                                TextStyle(fontSize: 18, color: Colors.black54),
-                          )
+                            "Movie Not Available",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
                         ],
                       ),
                     )
+
+                  // TAMPILAN HASIL PENCARIAN MOVIE DALAM BENTUK LIST
                   : ListView.builder(
-                      itemCount: resultsCount,
+                      itemCount: filteredResults.length,
                       itemBuilder: (context, index) {
                         final movie = filteredResults[index];
-                        final rating = movie["rating"] ?? 0;
-                        final isDecimal = rating % 1 != 0;
-                        final ratingLabel = isDecimal
-                            ? rating.toStringAsFixed(1)
-                            : rating.toStringAsFixed(0);
+                        final rating = movie["rating"];
 
                         return GestureDetector(
                           onTap: () {
@@ -122,6 +111,10 @@ class _SearchPageState extends State<SearchPage> {
                                   status: movie["status"],
                                   synopsis: movie["synopsis"],
                                   actors: movie["actors"],
+                                  duration: movie["duration"],
+                                  rating: rating is int
+                                      ? rating.toDouble()
+                                      : rating,
                                 ),
                               ),
                             );
@@ -131,10 +124,12 @@ class _SearchPageState extends State<SearchPage> {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                // POSTER
                                 Container(
                                   width: 130,
                                   height: 180,
                                   decoration: BoxDecoration(
+                                    color: Colors.grey.shade300,
                                     borderRadius: BorderRadius.circular(8),
                                     border:
                                         Border.all(color: Colors.grey.shade300),
@@ -146,13 +141,18 @@ class _SearchPageState extends State<SearchPage> {
                                         offset: const Offset(0, 3),
                                       )
                                     ],
-                                    image: DecorationImage(
-                                      image: AssetImage(movie["poster"]),
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Image.asset(
+                                      movie["poster"],
                                       fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
                                 const SizedBox(width: 16),
+
+                                // STYLE DATA CARD
                                 Expanded(
                                   child: Column(
                                     crossAxisAlignment:
@@ -161,25 +161,47 @@ class _SearchPageState extends State<SearchPage> {
                                       Text(
                                         movie["title"],
                                         style: const TextStyle(
-                                          color: Colors.black87,
+                                          color: Colors.black,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 16,
                                         ),
                                       ),
                                       const SizedBox(height: 4),
-                                      Row(
-                                        children: [
-                                          Text(
-                                            "$ratingLabel ",
-                                            style: const TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500,
-                                              color: Colors.black87,
+                                      if (rating != null)
+                                        Row(
+                                          children: [
+                                            Text(
+                                              rating % 1 == 0
+                                                  ? rating.toInt().toString()
+                                                  : rating.toStringAsFixed(1),
+                                              style: const TextStyle(
+                                                color: Color(0xFFFFC700),
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
-                                          ),
-                                          buildRatingStars(rating.toDouble()),
-                                        ],
-                                      ),
+                                            const SizedBox(width: 4),
+                                            Row(
+                                              children: List.generate(5, (i) {
+                                                if (i < rating.floor()) {
+                                                  return const Icon(Icons.star,
+                                                      color: Color(0xFFFFC700),
+                                                      size: 18);
+                                                } else if (i < rating &&
+                                                    (rating - i) >= 0.5) {
+                                                  return const Icon(
+                                                      Icons.star_half,
+                                                      color: Color(0xFFFFC700),
+                                                      size: 18);
+                                                } else {
+                                                  return const Icon(
+                                                      Icons.star_border,
+                                                      color: Color(0xFFFFC700),
+                                                      size: 18);
+                                                }
+                                              }),
+                                            ),
+                                          ],
+                                        ),
                                       const SizedBox(height: 4),
                                       Text(
                                         movie["genre"],

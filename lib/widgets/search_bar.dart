@@ -42,7 +42,6 @@ class SearchWidget extends StatelessWidget {
                     onSubmitted: onSubmitted,
                   ),
                 ),
-                Icon(Icons.mic, color: Colors.black, size: 30),
               ],
             ),
           ),
