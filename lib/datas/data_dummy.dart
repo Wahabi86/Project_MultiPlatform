@@ -52,6 +52,7 @@ List<Map<String, dynamic>> movies = [
     "duration": "1hr 25 min",
     "status": "XXI, Cinepolis",
     "views": 1430,
+    "status": "XXI, Amazon Prime, NETFLIX",
     "synopsis":
         "mengangkat kisah kelam di sebuah desa pada tahun 1948, ketika pasangan suami istri, Sulastri dan Soedjiman, menjalani ritual terlarang demi memiliki keturunan. Mereka dikaruniai bayi kembar, Kumala dan Sumala, namun karena Sumala lahir dengan kondisi fisik yang tidak sempurna, ia dibunuh oleh ayahnya. Tindakan keji ini membangkitkan kutukan: arwah Sumala bangkit dari kematian dan menebar teror sebagai pembalasan atas penderitaan dirinya dan Kumala yang terus-menerus disiksa warga. Sosok Sumala kemudian menjadi simbol balas dendam dan kutukan mengerikan yang menghantui desa, menguak sisi gelap manusia yang diliputi keserakahan dan kekejaman.",
     "actors": [
@@ -69,6 +70,7 @@ List<Map<String, dynamic>> movies = [
     "duration": "1hr 47 min",
     "status": "XXI, Cinepolis",
     "views": 1150,
+    "status": "XXI, Amazon Prime, Cinepolis",
     "synopsis":
         "perjuangan sepasang suami istri, Arya dan Mirah, yang dilanda duka mendalam setelah kehilangan anak mereka, Komang. Terpuruk dalam kesedihan, Arya dan Mirah memutuskan untuk membuat sebuah patung kayu menyerupai Komang sebagai bentuk pelampiasan rindu. Namun, kehadiran patung tersebut justru membawa perubahan aneh dalam kehidupan mereka—Mirah mulai memperlakukan patung itu seperti anak kandungnya sendiri, dan Arya pun mulai merasa kehadiran Komang kembali nyata. Dalam suasana magis yang mencekam, film ini menggambarkan konflik batin antara cinta, kehilangan, dan keikhlasan, serta bagaimana sebuah keputusasaan dapat mendorong manusia melintasi batas kenyataan dan mistis.",
     "actors": [
@@ -86,6 +88,7 @@ List<Map<String, dynamic>> movies = [
     "duration": "1hr min",
     "status": "XXI, Cinepolis",
     "views": 890,
+    "status": "XXI, Amazon Prime, NETFLIX",
     "synopsis":
         "perjalanan terakhir band lokal asal Malang bernama Yowis Ben yang dipimpin oleh Bayu. Di tengah kesuksesan dan popularitas yang mereka raih, para anggota band mulai dihadapkan pada konflik pribadi, impian yang berbeda, dan tekanan dari kehidupan dewasa. Bayu harus memilih antara karier musik atau mengejar cita-cita serta cinta sejatinya. Persahabatan, cinta, dan identitas menjadi tema utama dalam film ini, yang dikemas dengan humor khas Jawa Timur dan lagu-lagu original penuh makna. Film ini menyuguhkan akhir yang emosional dan mengharukan bagi para penggemar setia, sekaligus menjadi refleksi tentang arti kebersamaan dan keberanian melepaskan.",
     "actors": [
@@ -103,6 +106,7 @@ List<Map<String, dynamic>> movies = [
     "duration": "1hr 2 min",
     "status": "XXI, Cinepolis",
     "views": 1050,
+    "status": "XXI, Amazon Prime, NETFLIX",
     "synopsis":
         "menggambarkan kekosongan emosional generasi muda yang terjebak dalam dunia yang keras dan tak peduli. Cerita berpusat pada sekelompok pemuda yang tumbuh di lingkungan penuh kekerasan, kehilangan arah, dan terjebak dalam lingkaran dendam, pengkhianatan, serta pencarian jati diri. Mereka mencoba melawan keadaan dengan cara masing-masing—entah melalui pelampiasan, pemberontakan, atau pelarian—namun justru semakin jauh dari rasa kemanusiaan yang sejati. Dengan latar yang suram dan penuh tekanan, film ini menjadi cerminan tentang bagaimana kehilangan empati dan trauma masa lalu bisa mengubah seseorang menjadi dingin dan tak lagi mampu merasakan cinta atau peduli.",
     "actors": [
@@ -120,6 +124,7 @@ List<Map<String, dynamic>> movies = [
     "duration": "1hr 22min",
     "status": "XXI,Cinepolis",
     "views": 1330,
+    "status": "XXI,Amazon Prime",
     "synopsis":
         "petualangan kocak ketiga sahabat yang selalu terlibat dalam berbagai misi nyeleneh—mulai dari membantu masyarakat, membongkar kejahatan, hingga menghadapi situasi absurd dengan cara yang konyol dan penuh kejutan. Dengan sentuhan visual animasi modern namun tetap mempertahankan ciri khas lawakan klasik Warkop, film ini ditujukan untuk menghibur penonton lintas generasi, mengenang kejayaan Warkop DKI sekaligus memperkenalkannya kepada generasi muda dengan format yang segar dan penuh warna.",
     "actors": [
@@ -157,6 +162,7 @@ List<Map<String, dynamic>> recommendations = [
     "duration": "1hr 59min",
     "status": "XXI,NETFLIX,Cinepolis ",
     "views": 1820,
+    "status": "XXI,NETFLIX, Amazon Prime ",
     "synopsis":
         " Tempat sahabat—Bene, Boris, Oki, dan Indra—yang bekerja di sebuah rumah hantu di pasar malam. Dalam usaha menaikkan popularitas wahana mereka, keempatnya melakukan modifikasi ekstrem agar lebih menyeramkan. Namun, semuanya berubah kacau saat seorang pengunjung benar-benar tewas di dalam rumah hantu akibat kesalahan mereka. Panik dan takut dipenjara, mereka mencoba menutupi kejadian itu, tapi justru berujung pada serangkaian peristiwa ganjil dan supranatural. Film ini menggabungkan humor absurd dengan nuansa horor dan kritik sosial, menghadirkan kisah yang segar, kocak, dan menegangkan dalam satu paket hiburan yang unik.",
     "actors": [
@@ -177,6 +183,7 @@ List<Map<String, dynamic>> recommendations = [
     "duration": "1hr 43min",
     "status": "XXI, Cinepolis, CGV",
     "views": 2010,
+    "status": "XXI, NETFLIX",
     "synopsis":
         "kehidupan anak-anak jalanan yang tumbuh besar di bawah kolong jembatan, jauh dari kasih sayang keluarga dan fasilitas layak. Fokus cerita terpusat pada seorang anak bernama Rehan yang hidup bersama kelompok kecil anak-anak senasib dan mencoba bertahan hidup di tengah kerasnya kota. Meski dikelilingi kemiskinan, kekerasan, dan godaan kejahatan, Rehan tetap memegang teguh prinsipnya untuk tidak terjerumus ke hal-hal negatif. Film ini menyajikan potret nyata perjuangan anak-anak marginal, menggugah empati, dan menjadi kritik terhadap ketimpangan sosial serta kurangnya perhatian negara terhadap masa depan generasi muda di jalanan.",
     "actors": [
@@ -197,6 +204,7 @@ List<Map<String, dynamic>> recommendations = [
     "duration": "1hr 37min",
     "status": "Amazon Prime Video, Prime",
     "views": 2230,
+    "status": "Amazon Prime",
     "synopsis":
         "pertemuan tak terduga antara seorang terapis emosional bernama Tania dan pasiennya, Ares, seorang pria muda yang mengalami trauma cinta akibat masa lalunya yang kelam. Dalam setiap sesi terapi, hubungan mereka perlahan berkembang dari profesional menjadi personal, hingga keduanya terjebak dalam dilema perasaan yang tak seharusnya tumbuh di antara terapis dan klien. Di tengah konflik batin dan pertanyaan etika, mereka mencoba mencari arti cinta yang sebenarnya—apakah cinta bisa menyembuhkan, atau justru menjadi luka baru? Film ini menyuguhkan perjalanan emosional yang dalam, dengan nuansa psikologis dan romantisme yang kuat.",
     "actors": [
@@ -217,6 +225,7 @@ List<Map<String, dynamic>> recommendations = [
     "duration": "1hr 52min",
     "status": "XXI, Cinepolis, NETFLIX",
     "views": 1890,
+    "status": "XXI, NETFLIX",
     "synopsis":
         "petualangan remaja Indonesia yang bercerita tentang lima sahabat—Raka, Bimo, Naya, Tika, dan Jalu—yang tanpa sengaja terlibat dalam sebuah misteri kuno saat menjelajahi hutan untuk tugas sekolah. Petualangan mereka berubah menjadi pencarian berbahaya ketika mereka menemukan petunjuk menuju harta peninggalan leluhur yang telah lama tersembunyi. Dalam perjalanan, mereka menghadapi berbagai rintangan, termasuk konflik antar teman, jebakan alam, dan kejaran pihak yang ingin merebut harta tersebut. Namun, semangat kebersamaan, keberanian, dan kepercayaan satu sama lain menjadi kunci utama mereka untuk keluar dari situasi berbahaya. Film ini memadukan unsur petualangan, persahabatan, dan nilai-nilai moral yang menginspirasi penonton muda.",
     "actors": [

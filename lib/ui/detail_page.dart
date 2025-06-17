@@ -216,18 +216,29 @@ class MovieDetailsPage extends StatelessWidget {
                         spacing: 10,
                         runSpacing: 10,
                         children: status!.split(",").map((item) {
-                          final label = item.trim();
+                          final label = item.trim().toLowerCase();
                           String? url;
 
-                          if (label.toLowerCase() == "xxi") {
-                            url = "https://m.21cineplex.com/id";
-                          } else if (label.toLowerCase() == "cinepolis") {
-                            url = "https://cinepolis.co.id/";
+                          switch (label) {
+                            case "xxi":
+                              url = "https://m.21cineplex.com/id";
+                              break;
+                            case "netflix":
+                              url = "https://www.netflix.com/";
+                              break;
+                            case "prime video":
+                            case "amazon prime":
+                              url = "https://www.primevideo.com/";
+                              break;
                           }
 
                           return GestureDetector(
                             onTap: url != null ? () => _launchURL(url!) : null,
-                            child: _buildTag(label, tagBackground, themeColor),
+                            child: _buildTag(
+                              item.trim(),
+                              tagBackground,
+                              themeColor,
+                            ),
                           );
                         }).toList(),
                       ),
