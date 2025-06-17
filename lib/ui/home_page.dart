@@ -33,6 +33,17 @@ class _HomePageState extends State<HomePage> {
     }).toList();
   }
 
+  // MEMFORMAT DATA ANGKA VIEWS MENJADI K DAN M
+  String _formatViews(int views) {
+    if (views >= 1000000) {
+      return "${(views / 1000000).toStringAsFixed(1)}M";
+    } else if (views >= 1000) {
+      return "${(views / 1000).toStringAsFixed(1)}K";
+    } else {
+      return views.toString();
+    }
+  }
+
   // ISI DARI MOVIE CARD KETIKA DI CLICK
   Widget _buildMovieCard(Map<String, dynamic> movie, double width) {
     return GestureDetector(
@@ -124,6 +135,17 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(width: 4),
                       const Icon(Icons.star,
                           color: Color(0xFFFFD700), size: 16),
+                      const SizedBox(width: 8),
+                      const Icon(Icons.remove_red_eye,
+                          color: Colors.grey, size: 16),
+                      const SizedBox(width: 4),
+                      Text(
+                        _formatViews(movie["views"] ?? 0),
+                        style: TextStyle(
+                            color: Colors.grey[700],
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500),
+                      ),
                     ],
                   )
                 ],
