@@ -50,7 +50,6 @@ List<Map<String, dynamic>> movies = [
     "poster": "assets/images/Sumala.jpg",
     "genre": "Horror",
     "duration": "1hr 25 min",
-    "status": "XXI, Cinepolis",
     "views": 1430,
     "status": "XXI, Amazon Prime, NETFLIX",
     "synopsis":
@@ -68,7 +67,6 @@ List<Map<String, dynamic>> movies = [
     "poster": "assets/images/Komang.jpg",
     "genre": "Romance",
     "duration": "1hr 47 min",
-    "status": "XXI, Cinepolis",
     "views": 1150,
     "status": "XXI, Amazon Prime, Cinepolis",
     "synopsis":
@@ -86,7 +84,6 @@ List<Map<String, dynamic>> movies = [
     "poster": "assets/images/YowisBen.jpg",
     "genre": "Comedy, Romance",
     "duration": "1hr min",
-    "status": "XXI, Cinepolis",
     "views": 890,
     "status": "XXI, Amazon Prime, NETFLIX",
     "synopsis":
@@ -104,7 +101,6 @@ List<Map<String, dynamic>> movies = [
     "poster": "assets/images/Perayaan.jpg",
     "genre": "Drama, Action",
     "duration": "1hr 2 min",
-    "status": "XXI, Cinepolis",
     "views": 1050,
     "status": "XXI, Amazon Prime, NETFLIX",
     "synopsis":
@@ -122,7 +118,6 @@ List<Map<String, dynamic>> movies = [
     "poster": "assets/images/DkiKartun.jpg",
     "genre": "Comedy",
     "duration": "1hr 22min",
-    "status": "XXI,Cinepolis",
     "views": 1330,
     "status": "XXI,Amazon Prime",
     "synopsis":
@@ -160,7 +155,6 @@ List<Map<String, dynamic>> recommendations = [
     "poster": "assets/images/RcdAgakLaen.jpg",
     "genre": "Comedy",
     "duration": "1hr 59min",
-    "status": "XXI,NETFLIX,Cinepolis ",
     "views": 1820,
     "status": "XXI,NETFLIX, Amazon Prime ",
     "synopsis":
@@ -181,7 +175,6 @@ List<Map<String, dynamic>> recommendations = [
     "poster": "assets/images/RcdAnakKolong.jpg",
     "genre": "Drama, Romance",
     "duration": "1hr 43min",
-    "status": "XXI, Cinepolis, CGV",
     "views": 2010,
     "status": "XXI, NETFLIX",
     "synopsis":
@@ -202,7 +195,6 @@ List<Map<String, dynamic>> recommendations = [
     "poster": "assets/images/RcdTherapy.jpg",
     "genre": "Drama, Romance",
     "duration": "1hr 37min",
-    "status": "Amazon Prime Video, Prime",
     "views": 2230,
     "status": "Amazon Prime",
     "synopsis":
@@ -223,7 +215,6 @@ List<Map<String, dynamic>> recommendations = [
     "poster": "assets/images/sekawann.jpg",
     "genre": "Action, Horror, Comedy",
     "duration": "1hr 52min",
-    "status": "XXI, Cinepolis, NETFLIX",
     "views": 1890,
     "status": "XXI, NETFLIX",
     "synopsis":

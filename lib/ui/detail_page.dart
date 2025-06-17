@@ -271,7 +271,7 @@ class MovieDetailsPage extends StatelessWidget {
       ),
     );
   }
-  
+
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
