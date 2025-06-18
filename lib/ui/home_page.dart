@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withAlpha(25),
               blurRadius: 8,
               offset: const Offset(0, 4),
             ),
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            
+
             // STYLING DALAM CARD MOVIE
             Padding(
               padding: const EdgeInsets.all(8),
@@ -235,7 +235,7 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withAlpha(25),
                         blurRadius: 8,
                         offset: const Offset(0, 4),
                       ),
@@ -296,7 +296,7 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: filteredMovies.isEmpty
-                ? Container(
+                ? SizedBox(
                     height: 200,
                     child: Center(
                       child: Column(
