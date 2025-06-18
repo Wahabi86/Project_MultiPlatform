@@ -226,8 +226,8 @@ class MovieDetailsPage extends StatelessWidget {
                             case "netflix":
                               url = "https://www.netflix.com/";
                               break;
-                            case "amazon prime":
-                              url = "https://www.primevideo.com/";
+                            case "cinepolis":
+                              url = "https://cinepolis.co.id/";
                               break;
                           }
 

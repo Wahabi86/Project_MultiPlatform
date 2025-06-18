@@ -51,7 +51,7 @@ List<Map<String, dynamic>> movies = [
     "genre": "Horror",
     "duration": "1hr 25 min",
     "views": 1430,
-    "status": "XXI, Amazon Prime, NETFLIX",
+    "status": "XXI, cinepolis, NETFLIX",
     "synopsis":
         "mengangkat kisah kelam di sebuah desa pada tahun 1948, ketika pasangan suami istri, Sulastri dan Soedjiman, menjalani ritual terlarang demi memiliki keturunan. Mereka dikaruniai bayi kembar, Kumala dan Sumala, namun karena Sumala lahir dengan kondisi fisik yang tidak sempurna, ia dibunuh oleh ayahnya. Tindakan keji ini membangkitkan kutukan: arwah Sumala bangkit dari kematian dan menebar teror sebagai pembalasan atas penderitaan dirinya dan Kumala yang terus-menerus disiksa warga. Sosok Sumala kemudian menjadi simbol balas dendam dan kutukan mengerikan yang menghantui desa, menguak sisi gelap manusia yang diliputi keserakahan dan kekejaman.",
     "actors": [
@@ -68,7 +68,7 @@ List<Map<String, dynamic>> movies = [
     "genre": "Romance",
     "duration": "1hr 47 min",
     "views": 1150,
-    "status": "XXI, Amazon Prime, Cinepolis",
+    "status": "XXI, cinepolis, Cinepolis",
     "synopsis":
         "perjuangan sepasang suami istri, Arya dan Mirah, yang dilanda duka mendalam setelah kehilangan anak mereka, Komang. Terpuruk dalam kesedihan, Arya dan Mirah memutuskan untuk membuat sebuah patung kayu menyerupai Komang sebagai bentuk pelampiasan rindu. Namun, kehadiran patung tersebut justru membawa perubahan aneh dalam kehidupan mereka—Mirah mulai memperlakukan patung itu seperti anak kandungnya sendiri, dan Arya pun mulai merasa kehadiran Komang kembali nyata. Dalam suasana magis yang mencekam, film ini menggambarkan konflik batin antara cinta, kehilangan, dan keikhlasan, serta bagaimana sebuah keputusasaan dapat mendorong manusia melintasi batas kenyataan dan mistis.",
     "actors": [
@@ -85,7 +85,7 @@ List<Map<String, dynamic>> movies = [
     "genre": "Comedy, Romance",
     "duration": "1hr min",
     "views": 890,
-    "status": "XXI, Amazon Prime, NETFLIX",
+    "status": "XXI, cinepolis, NETFLIX",
     "synopsis":
         "perjalanan terakhir band lokal asal Malang bernama Yowis Ben yang dipimpin oleh Bayu. Di tengah kesuksesan dan popularitas yang mereka raih, para anggota band mulai dihadapkan pada konflik pribadi, impian yang berbeda, dan tekanan dari kehidupan dewasa. Bayu harus memilih antara karier musik atau mengejar cita-cita serta cinta sejatinya. Persahabatan, cinta, dan identitas menjadi tema utama dalam film ini, yang dikemas dengan humor khas Jawa Timur dan lagu-lagu original penuh makna. Film ini menyuguhkan akhir yang emosional dan mengharukan bagi para penggemar setia, sekaligus menjadi refleksi tentang arti kebersamaan dan keberanian melepaskan.",
     "actors": [
@@ -102,7 +102,7 @@ List<Map<String, dynamic>> movies = [
     "genre": "Drama, Action",
     "duration": "1hr 2 min",
     "views": 1050,
-    "status": "XXI, Amazon Prime, NETFLIX",
+    "status": "XXI, cinepolis, NETFLIX",
     "synopsis":
         "menggambarkan kekosongan emosional generasi muda yang terjebak dalam dunia yang keras dan tak peduli. Cerita berpusat pada sekelompok pemuda yang tumbuh di lingkungan penuh kekerasan, kehilangan arah, dan terjebak dalam lingkaran dendam, pengkhianatan, serta pencarian jati diri. Mereka mencoba melawan keadaan dengan cara masing-masing—entah melalui pelampiasan, pemberontakan, atau pelarian—namun justru semakin jauh dari rasa kemanusiaan yang sejati. Dengan latar yang suram dan penuh tekanan, film ini menjadi cerminan tentang bagaimana kehilangan empati dan trauma masa lalu bisa mengubah seseorang menjadi dingin dan tak lagi mampu merasakan cinta atau peduli.",
     "actors": [
@@ -119,7 +119,7 @@ List<Map<String, dynamic>> movies = [
     "genre": "Comedy",
     "duration": "1hr 22min",
     "views": 1330,
-    "status": "XXI,Amazon Prime",
+    "status": "XXI,cinepolis",
     "synopsis":
         "petualangan kocak ketiga sahabat yang selalu terlibat dalam berbagai misi nyeleneh—mulai dari membantu masyarakat, membongkar kejahatan, hingga menghadapi situasi absurd dengan cara yang konyol dan penuh kejutan. Dengan sentuhan visual animasi modern namun tetap mempertahankan ciri khas lawakan klasik Warkop, film ini ditujukan untuk menghibur penonton lintas generasi, mengenang kejayaan Warkop DKI sekaligus memperkenalkannya kepada generasi muda dengan format yang segar dan penuh warna.",
     "actors": [
@@ -156,7 +156,7 @@ List<Map<String, dynamic>> recommendations = [
     "genre": "Comedy",
     "duration": "1hr 59min",
     "views": 1820,
-    "status": "XXI,NETFLIX, Amazon Prime ",
+    "status": "XXI,NETFLIX, cinepolis ",
     "synopsis":
         " Tempat sahabat—Bene, Boris, Oki, dan Indra—yang bekerja di sebuah rumah hantu di pasar malam. Dalam usaha menaikkan popularitas wahana mereka, keempatnya melakukan modifikasi ekstrem agar lebih menyeramkan. Namun, semuanya berubah kacau saat seorang pengunjung benar-benar tewas di dalam rumah hantu akibat kesalahan mereka. Panik dan takut dipenjara, mereka mencoba menutupi kejadian itu, tapi justru berujung pada serangkaian peristiwa ganjil dan supranatural. Film ini menggabungkan humor absurd dengan nuansa horor dan kritik sosial, menghadirkan kisah yang segar, kocak, dan menegangkan dalam satu paket hiburan yang unik.",
     "actors": [
@@ -196,7 +196,7 @@ List<Map<String, dynamic>> recommendations = [
     "genre": "Drama, Romance",
     "duration": "1hr 37min",
     "views": 2230,
-    "status": "Amazon Prime",
+    "status": "cinepolis",
     "synopsis":
         "pertemuan tak terduga antara seorang terapis emosional bernama Tania dan pasiennya, Ares, seorang pria muda yang mengalami trauma cinta akibat masa lalunya yang kelam. Dalam setiap sesi terapi, hubungan mereka perlahan berkembang dari profesional menjadi personal, hingga keduanya terjebak dalam dilema perasaan yang tak seharusnya tumbuh di antara terapis dan klien. Di tengah konflik batin dan pertanyaan etika, mereka mencoba mencari arti cinta yang sebenarnya—apakah cinta bisa menyembuhkan, atau justru menjadi luka baru? Film ini menyuguhkan perjalanan emosional yang dalam, dengan nuansa psikologis dan romantisme yang kuat.",
     "actors": [
