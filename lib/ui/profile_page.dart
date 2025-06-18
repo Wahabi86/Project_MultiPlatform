@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:project_uts/login_page/login.dart';
 import '../widgets/forum_chat.dart';
 
@@ -12,6 +14,54 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   String username = "I Wayan Manday";
   final String email = "mandaylagiterbang@example.com";
+  File? _profileImage;
+
+  final ImagePicker _picker = ImagePicker();
+
+  Future<void> _pickImage(ImageSource source) async {
+    final pickedFile =
+        await _picker.pickImage(source: source, imageQuality: 80);
+    if (pickedFile != null) {
+      setState(() {
+        _profileImage = File(pickedFile.path);
+      });
+    }
+    Navigator.pop(context);
+  }
+
+  void _showImageSourceOptions() {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (_) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text(
+                "Pilih Sumber Gambar",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 20),
+              ListTile(
+                leading: const Icon(Icons.photo_camera),
+                title: const Text("Kamera"),
+                onTap: () => _pickImage(ImageSource.camera),
+              ),
+              ListTile(
+                leading: const Icon(Icons.photo_library),
+                title: const Text("Galeri"),
+                onTap: () => _pickImage(ImageSource.gallery),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   void _showEditModal() {
     final usernameController = TextEditingController(text: username);
@@ -44,8 +94,20 @@ class _ProfilePageState extends State<ProfilePage> {
                 controller: usernameController,
                 decoration: const InputDecoration(
                   labelText: "Username",
-                  border: OutlineInputBorder(),
+                  labelStyle: TextStyle(color: Color(0xFF00425A)),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF00425A), width: 2),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Color(0xFF00425A), width: 1.5),
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF00425A)),
+                  ),
                 ),
+                cursorColor: Color(0xFF00425A),
+                style: TextStyle(color: Colors.black87),
               ),
               const SizedBox(height: 24),
               Align(
@@ -100,8 +162,6 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Column(
           children: [
             const SizedBox(height: 20),
-
-            // Profile Card
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
               padding: const EdgeInsets.all(24),
@@ -118,54 +178,51 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               child: Column(
                 children: [
-                  // Profile Picture
                   Stack(
                     alignment: Alignment.bottomRight,
                     children: [
                       Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.deepPurpleAccent.withOpacity(0.3),
-                              blurRadius: 20,
-                              offset: const Offset(0, 10),
-                            ),
-                          ],
                         ),
                         child: CircleAvatar(
                           radius: 50,
                           backgroundColor: Colors.grey.shade800,
-                          child: const Icon(
-                            Icons.person,
-                            size: 60,
-                            color: Colors.white,
-                          ),
+                          backgroundImage: _profileImage != null
+                              ? FileImage(_profileImage!)
+                              : null,
+                          child: _profileImage == null
+                              ? const Icon(
+                                  Icons.person,
+                                  size: 60,
+                                  color: Colors.white,
+                                )
+                              : null,
                         ),
                       ),
                       Positioned(
                         right: 0,
                         bottom: 0,
-                        child: Container(
-                          padding: const EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            color: Colors.deepPurpleAccent,
-                            shape: BoxShape.circle,
-                            border: Border.all(color: Colors.white, width: 2),
-                          ),
-                          child: const Icon(
-                            Icons.edit,
-                            size: 20,
-                            color: Colors.white,
+                        child: InkWell(
+                          onTap: _showImageSourceOptions,
+                          child: Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF00425A),
+                              shape: BoxShape.circle,
+                              border: Border.all(color: Colors.white, width: 2),
+                            ),
+                            child: const Icon(
+                              Icons.edit,
+                              size: 20,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
                     ],
                   ),
-
                   const SizedBox(height: 20),
-
-                  // Username
                   Text(
                     username,
                     style: const TextStyle(
@@ -174,10 +231,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       color: Colors.black87,
                     ),
                   ),
-
                   const SizedBox(height: 8),
-
-                  // Email
                   Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16,
@@ -205,10 +259,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             ),
-
             const SizedBox(height: 30),
-
-            // Menu Section
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
@@ -260,7 +311,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             ),
-
             const SizedBox(height: 40),
           ],
         ),
@@ -289,7 +339,6 @@ class _ProfilePageState extends State<ProfilePage> {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
           child: Row(
             children: [
-              // Icon with background
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
@@ -302,10 +351,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   size: 22,
                 ),
               ),
-
               const SizedBox(width: 16),
-
-              // Title
               Expanded(
                 child: Text(
                   title,
@@ -316,8 +362,6 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
-
-              // Arrow
               if (showArrow)
                 Icon(
                   Icons.chevron_right_rounded,
@@ -333,8 +377,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Widget _buildDivider() {
     return Container(
-      margin: const EdgeInsets.only(left: 72),
       height: 1,
+      width: double.infinity,
       color: Colors.grey.shade200,
     );
   }
