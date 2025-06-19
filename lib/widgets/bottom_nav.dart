@@ -24,7 +24,6 @@ class _BottomNavState extends State<BottomNav> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      backgroundColor: Colors.black,
       body: _pages[_selectedIndex],
       bottomNavigationBar: CurvedNavigationBar(
         index: _selectedIndex,
