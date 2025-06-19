@@ -10,7 +10,22 @@ Future<GraphQLClient> getGraphQLClient() async {
     getToken: () async => authToken != null ? 'Bearer $authToken' : null,
   );
 
-  final link = authLink.concat(httpLink);
+  final wsLink = WebSocketLink(
+    'ws://10.0.2.2:8080/query',
+    config: SocketClientConfig(
+      autoReconnect: true,
+      inactivityTimeout: Duration(seconds: 30),
+      initialPayload: () async => {
+        'Authorization': authToken != null ? 'Bearer $authToken' : '',
+      },
+    ),
+  );
+
+  final link = Link.split(
+    (request) => request.isSubscription,
+    wsLink,
+    authLink.concat(httpLink),
+  );
 
   return GraphQLClient(
     cache: GraphQLCache(store: InMemoryStore()),

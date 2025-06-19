@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:project_uts/login_page/login.dart';
 import '../widgets/forum_chat.dart';
+import 'package:project_uts/services/user_service.dart';
+import 'package:project_uts/graphql/graphql_client.dart';
+import 'package:project_uts/graphql/query/me_query.dart';
+import 'package:project_uts/graphql/mutations/update_username.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -10,6 +15,8 @@ class ProfilePage extends StatefulWidget {
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
+
+final userService = UserService();
 
 class _ProfilePageState extends State<ProfilePage> {
   String username = "I Wayan Manday";
@@ -113,11 +120,18 @@ class _ProfilePageState extends State<ProfilePage> {
               Align(
                 alignment: Alignment.centerRight,
                 child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      username = usernameController.text;
-                    });
-                    Navigator.pop(context);
+                  onPressed: () async {
+                    final newName = usernameController.text;
+
+                    final updated = await userService.updateUsername(newName);
+                    if (updated != null) {
+                      setState(() {
+                        nameFromAPI = updated['name'];
+                      });
+                      Navigator.pop(context);
+                    } else {
+                      print("❌ Gagal update username");
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF00425A),
@@ -139,6 +153,27 @@ class _ProfilePageState extends State<ProfilePage> {
         );
       },
     );
+  }
+
+  String? nameFromAPI;
+  String? emailFromAPI;
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadProfile();
+  }
+
+  Future<void> _loadProfile() async {
+    final user = await userService.getProfile();
+    if (user != null) {
+      setState(() {
+        nameFromAPI = user['name'];
+        emailFromAPI = user['email'];
+        isLoading = false;
+      });
+    }
   }
 
   @override
@@ -224,7 +259,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    username,
+                    nameFromAPI ?? "Loading...",
                     style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -246,7 +281,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       children: [
                         const SizedBox(width: 8),
                         Text(
-                          email,
+                          emailFromAPI ?? "",
                           style: TextStyle(
                             color: Colors.grey.shade700,
                             fontSize: 14,
@@ -290,7 +325,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const ForumChatScreen(),
+                          builder: (context) => const ForumChatButton(),
                         ),
                       );
                     },

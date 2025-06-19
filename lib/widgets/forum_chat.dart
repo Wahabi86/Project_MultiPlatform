@@ -104,8 +104,8 @@ class ForumChatScreen extends StatelessWidget {
                       hintText: "Ketik pesan...",
                       filled: true,
                       fillColor: Colors.grey.shade100,
-                      contentPadding:
-                          const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         borderSide: BorderSide.none,
