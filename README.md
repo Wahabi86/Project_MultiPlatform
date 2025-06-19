@@ -10,6 +10,7 @@ Dengan Movie App, kamu bisa:
 - ✅ Mencari film-film berdasarkan judul
 - ✅ Melihat data film seperti judul, genre, rating, durasi, synopsis, daftar actor, dan status tayang (Coming Soon / Now Showing)
 - ✅ Melihat Rekomendasi film berdasarkan rating dan jumlah views
+- ✅ Merujuk ke platform streaming resmi dari filmnya profil
 - ✅ Melihat profil dan data akun sendiri
 
 ----
