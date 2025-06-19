@@ -175,7 +175,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         centerTitle: true,
         title: const Text(
-          "Mebalih Film",
+          "Pustaka Film",
           style: TextStyle(
             color: Color(0xFF0F172A),
             fontSize: 26,
